@@ -1,0 +1,15 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2014-04-14 10:53:09
+project --topLevelPackage com.dart.serviceclient --projectName serviceclient --packaging WAR
+jpa setup --provider HIBERNATE --database H2_IN_MEMORY
+entity jpa --class ~.domain.UserAccount --activeRecord false
+field string --fieldName userName --unique
+field string --fieldName password
+field string --fieldName email --notNull --regexp [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}
+field date --fieldName accountExpiration --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm"
+field boolean --fieldName disableLogin --notNull --primitive
+field boolean --fieldName accountLocked --notNull --primitive
+field date --fieldName credentialExpiration --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm"
+repository jpa --interface ~.repository.UserRepository --entity ~.domain.UserAccount
+service --interface ~.service.UserService --entity ~.domain.UserAccount
+controller all --package ~.web
+// script --file serviceclient.roo
