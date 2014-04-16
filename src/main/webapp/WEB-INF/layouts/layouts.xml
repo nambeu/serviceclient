@@ -15,5 +15,10 @@
     <put-attribute name="header" value="/WEB-INF/views/header.jspx" />
     <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
   </definition>
+  
+  <definition name="homeLayout" template="/WEB-INF/layouts/homeLayout.jspx">
+    <put-attribute name="header" value="/WEB-INF/views/headerHome.jspx" />
+    <put-attribute name="footer" value="/WEB-INF/views/footerHome.jspx" />
+  </definition>
 
 </tiles-definitions>

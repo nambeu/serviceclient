@@ -13,3 +13,5 @@ repository jpa --interface ~.repository.UserRepository --entity ~.domain.UserAcc
 service --interface ~.service.UserService --entity ~.domain.UserAccount
 controller all --package ~.web
 // script --file serviceclient.roo
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2014-04-14 14:24:00
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2014-04-14 14:27:22

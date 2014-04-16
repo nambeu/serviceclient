@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dart_serviceclient_domain_UserAccount" object="${useraccount}" path="/useraccounts" z="wKTtMDpzLV0UQLUv5H3bC5WAXls=">
+        <field:display field="userName" id="s_com_dart_serviceclient_domain_UserAccount_userName" object="${useraccount}" z="qhLGj+NvQqycZ3KpVTytmtXLP7E="/>
+        <field:display field="password" id="s_com_dart_serviceclient_domain_UserAccount_password" object="${useraccount}" z="002rJnQPAgFXoKg3LlFepPukjmI="/>
+        <field:display field="email" id="s_com_dart_serviceclient_domain_UserAccount_email" object="${useraccount}" z="m3xjLJikoovC8yjlOQU3CTS8PTg="/>
+        <field:display date="true" dateTimePattern="${userAccount_accountexpiration_date_format}" field="accountExpiration" id="s_com_dart_serviceclient_domain_UserAccount_accountExpiration" object="${useraccount}" z="S5EobP5uik6PkiWZBh2gy1e8soY="/>
+        <field:display field="disableLogin" id="s_com_dart_serviceclient_domain_UserAccount_disableLogin" object="${useraccount}" z="YjeSCm4JkOCpvkOk6VNUSc54SZ8="/>
+        <field:display field="accountLocked" id="s_com_dart_serviceclient_domain_UserAccount_accountLocked" object="${useraccount}" z="FBaljH2K7OAsoqCAoiBVrIHi4HU="/>
+        <field:display date="true" dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="s_com_dart_serviceclient_domain_UserAccount_credentialExpiration" object="${useraccount}" z="19XUWUU3odrjMLPf6fwwh8Jbl6Q="/>
+    </page:show>
+</div>
