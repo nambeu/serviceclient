@@ -15,3 +15,6 @@ controller all --package ~.web
 // script --file serviceclient.roo
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2014-04-14 14:24:00
 // Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2014-04-14 14:27:22
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-04-17 13:35:43
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-04-17 13:59:35

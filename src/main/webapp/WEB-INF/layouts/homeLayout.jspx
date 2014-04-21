@@ -16,11 +16,13 @@
 
 <!-- Bootstrap core CSS -->
 <spring:url value="/resources" var="res"></spring:url>
+<!-- <link href="${res}/css/louis.css" rel="stylesheet" /> -->
 <link href="${res}/css/bootstrap.css" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
 <link href="${res}/css/jumbotron-narrow.css" rel="stylesheet" />
 
+<!-- <script src="${res}/js/louis.js"></script> -->
 <spring:message code="application_name" var="app_name"
 	htmlEscape="false" />
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
@@ -31,9 +33,13 @@
 	<div class="container">
 		<div class="header">
 			<ul class="nav nav-pills pull-right">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
+				<li class="active">
+				<spring:url value="/index" var="home"></spring:url>
+				<a href="${home}">Home</a></li>
+				<spring:url value="/useraccounts/about" var="about"></spring:url>
+				<li class="active"><a href="${about}">About</a></li>
+				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
+				<li class="active"><a href="${cont}">Contact</a></li>
 			</ul>
 			<h3 class="text-muted">Project name</h3>
 		</div>

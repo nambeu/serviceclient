@@ -9,7 +9,7 @@
             <table:column id="c_com_dart_serviceclient_domain_UserAccount_email" property="email" z="BWuvjizBUoPk3gZ9ZhnyZwRkdbo="/>
             <table:column date="true" dateTimePattern="${userAccount_accountexpiration_date_format}" id="c_com_dart_serviceclient_domain_UserAccount_accountExpiration" property="accountExpiration" z="/kbphT2ms01NUt1nB4kAQlZ9bhA="/>
             <table:column id="c_com_dart_serviceclient_domain_UserAccount_disableLogin" property="disableLogin" z="eFAWqSCsGmO8kpvTiU5T7DSgeJ4="/>
-            <table:column id="c_com_dart_serviceclient_domain_UserAccount_accountLocked" property="accountLocked" z="sar/rmivxOrTWCfngs9VvOVpemI="/>
+            <table:column id="c_com_dart_serviceclient_domain_UserAccount_confPassword" property="confPassword" z="fnv/EbIbWKxDrjaeeNunzdH2O7M="/>
         </table:table>
     </page:list>
 </div>

@@ -24,6 +24,14 @@ privileged aspect UserAccount_Roo_JavaBean {
         this.password = password;
     }
     
+    public String UserAccount.getConfPassword() {
+        return this.confPassword;
+    }
+    
+    public void UserAccount.setConfPassword(String confPassword) {
+        this.confPassword = confPassword;
+    }
+    
     public String UserAccount.getEmail() {
         return this.email;
     }
