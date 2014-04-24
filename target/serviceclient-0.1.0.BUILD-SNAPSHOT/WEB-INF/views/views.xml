@@ -16,6 +16,14 @@
   <definition name="signUp" extends="homeLayout">
     <put-attribute name="body" value="/WEB-INF/views/sign_up.jspx" />
   </definition>
+  
+  <definition name="about" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/about_us.jspx" />
+  </definition>
+  
+  <definition name="contact" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/contact_us.jspx" />
+  </definition>
 
   <definition name="dataAccessFailure" extends="public">
     <put-attribute name="body" value="/WEB-INF/views/dataAccessFailure.jspx" />

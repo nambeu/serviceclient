@@ -1,29 +1,40 @@
+
+
 <div xmlns:spring="http://www.springframework.org/tags"
 	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
-	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:sf="http://www.springframework.org/tags/form">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 
-<form name="formulaire" >
+<spring:url value="/useraccounts/creer" var="create_url"></spring:url>
+<sf:form method="post" action="${create_url}" commandName="userAccount"   >
+<sf:errors path="*" cssClass="errors" />
+
   <fieldset>
     <legend>Sign up</legend>
+    <div class="form-group has-success">${msg}</div>
     <div class="form-group">
-      <label for="login">Login :</label>
-      <input type="text" class="form-control" id="login" placeholder="Enter login" />
+      <sf:label path="userName">Login :</sf:label>
+      <sf:input cssClass="form-control" size="30" path="userName" id="login" placeholder="Enter login" />
+      <sf:errors path="userName" cssClass="errors" id="_userName_error_id"></sf:errors>
     </div>
      <div class="form-group">
-      <label for="password">Password :</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" />
+      <sf:label path="password">Password :</sf:label>
+      <sf:password cssClass="form-control" path="password" id="password" placeholder="Password" />
+      <sf:errors path="password" id="_password_error_id" cssClass="errors"></sf:errors>
     </div>
      <div class="form-group">
-      <label for="confPassword">Confirm password</label>
-      <input type="password" class="form-control" id="confPassword" placeholder="Confirm password" />
+      <sf:label path="confirmPassword">Confirm password</sf:label>
+      <sf:password cssClass="form-control" path="confirmPassword" id="confPassword" placeholder="Confirm password" />
+      <sf:errors path="password" id="_confirmPassword_error_id" cssClass="errors"></sf:errors>
     </div>
     <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" />
+      <sf:label path="email">Email address</sf:label>
+      <sf:input cssClass="form-control" path="email" id="email" placeholder="Enter email" />
+      <sf:errors path="email" cssClass="errors" id="_email_error_id" ></sf:errors>
     </div>
-    <button type="submit" class="btn btn-info" >Submit</button>
+    <input type="submit" class="btn btn-info" value="Creer" />
   </fieldset>
-</form>
+</sf:form>
 </div>

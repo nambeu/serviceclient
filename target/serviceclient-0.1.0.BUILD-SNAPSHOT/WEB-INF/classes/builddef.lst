@@ -11,7 +11,6 @@ UTF-8
 /home/louis/.m2/repository/org/springframework/spring-aspects/3.1.1.RELEASE/spring-aspects-3.1.1.RELEASE.jar
 -d
 /home/louis/workROO/serviceclient/serviceclient/target/classes
-/home/louis/workROO/serviceclient/serviceclient/src/main/java/com/dart/serviceclient/web/SignUpController.java
 /home/louis/workROO/serviceclient/serviceclient/src/main/java/com/dart/serviceclient/domain/UserAccount_Roo_JavaBean.aj
 /home/louis/workROO/serviceclient/serviceclient/src/main/java/com/dart/serviceclient/web/ApplicationConversionServiceFactoryBean.java
 /home/louis/workROO/serviceclient/serviceclient/src/main/java/com/dart/serviceclient/web/UserAccountController_Roo_Controller.aj
