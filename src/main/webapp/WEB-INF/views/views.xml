@@ -24,6 +24,10 @@
   <definition name="contact" extends="homeLayout">
     <put-attribute name="body" value="/WEB-INF/views/contact_us.jspx" />
   </definition>
+  
+  <definition name="users/list" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/listUsers.jspx" />
+  </definition>
 
   <definition name="dataAccessFailure" extends="public">
     <put-attribute name="body" value="/WEB-INF/views/dataAccessFailure.jspx" />

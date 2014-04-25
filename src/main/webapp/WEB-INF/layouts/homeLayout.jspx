@@ -40,6 +40,8 @@
 				<li class="active"><a href="${about}">About</a></li>
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
+				<spring:url value="/useraccounts/users" var="list"></spring:url>
+				<li class=""><a href="${list}">List Accounts</a></li>
 			</ul>
 			<h3 class="text-muted">Project name</h3>
 		</div>

@@ -99,6 +99,13 @@ public final class homeLayout_jspx extends org.apache.jasper.runtime.HttpJspBase
       out.write("Contact");
       out.write("</a>");
       out.write("</li>");
+      if (_jspx_meth_spring_url_4(_jspx_page_context))
+        return;
+      out.write("<li class=\"\">");
+      out.write("<a href=\"" + (java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${list}", java.lang.String.class, (PageContext)_jspx_page_context, null) + "\">");
+      out.write("List Accounts");
+      out.write("</a>");
+      out.write("</li>");
       out.write("</ul>");
       out.write("<h3 class=\"text-muted\">");
       out.write("Project name");
@@ -288,6 +295,33 @@ public final class homeLayout_jspx extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspx_th_spring_url_3.doFinally();
       _jspx_tagPool_spring_url_var_value_nobody.reuse(_jspx_th_spring_url_3);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_spring_url_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  spring:url
+    org.springframework.web.servlet.tags.UrlTag _jspx_th_spring_url_4 = (org.springframework.web.servlet.tags.UrlTag) _jspx_tagPool_spring_url_var_value_nobody.get(org.springframework.web.servlet.tags.UrlTag.class);
+    _jspx_th_spring_url_4.setPageContext(_jspx_page_context);
+    _jspx_th_spring_url_4.setParent(null);
+    _jspx_th_spring_url_4.setVar("list");
+    _jspx_th_spring_url_4.setValue("/useraccounts/users");
+    int[] _jspx_push_body_count_spring_url_4 = new int[] { 0 };
+    try {
+      int _jspx_eval_spring_url_4 = _jspx_th_spring_url_4.doStartTag();
+      if (_jspx_th_spring_url_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_spring_url_4[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_spring_url_4.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_spring_url_4.doFinally();
+      _jspx_tagPool_spring_url_var_value_nobody.reuse(_jspx_th_spring_url_4);
     }
     return false;
   }

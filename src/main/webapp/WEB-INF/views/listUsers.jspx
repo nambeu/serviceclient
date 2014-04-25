@@ -1,0 +1,31 @@
+<div xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<div class="row">
+  <div class="col-lg-4 navbar-brand">UserName</div>
+  <div class="col-lg-4 navbar-brand">Email</div>
+  <div class="col-lg-4 navbar-brand">Disable/Enable</div>
+</div>
+
+<c:forEach items="${listUsers}" var="users">
+<div class="row success">
+  <div class="col-lg-4 navbar-brand">${users.userName}</div>
+  <div class="col-lg-4 navbar-brand">${users.email}</div>
+  <div class="col-lg-4 navbar-brand">
+  
+  <c:if test="${users.disableLogin eq true}">
+  <spring:url value="/useraccounts/enable?id=${users.id}" var="enable_url"></spring:url>
+  <a href="${enable_url}" class="btn btn-warning btn-sm">Enable</a></c:if>
+  
+  <c:if test="${users.disableLogin eq false}">
+  <spring:url value="/useraccounts/disable?id=${users.id}" var="disable_url"></spring:url>
+  <a href="${disable_url}" class="btn btn-warning btn-sm">Disable</a></c:if></div>
+</div>
+</c:forEach>
+
+
+</div>
