@@ -88,7 +88,7 @@ public final class sign_005fup_jspx extends org.apache.jasper.runtime.HttpJspBas
             out.write("<legend>");
             out.write("Sign up");
             out.write("</legend>");
-            out.write("<div style=\"color:green;background-color: lavender; padding:3px;font-weight:bold\">");
+            out.write("<div style=\"color:green;background-color: transparent; padding:3px;font-weight:bold\">");
             out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${msg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
             out.write("</div>");
             out.write("<div class=\"form-group\">");

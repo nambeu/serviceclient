@@ -21,6 +21,7 @@
 
 <!-- Custom styles for this template -->
 <link href="${res}/css/jumbotron-narrow.css" rel="stylesheet" />
+<script src="${res}/js/jquery.js"><!--co--></script>
 
 <!-- <script src="${res}/js/louis.js"></script> -->
 <spring:message code="application_name" var="app_name"

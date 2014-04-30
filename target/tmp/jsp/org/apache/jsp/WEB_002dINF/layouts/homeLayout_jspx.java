@@ -67,6 +67,8 @@ public final class homeLayout_jspx extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("<link rel=\"stylesheet\" href=\"" + (java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${res}/css/bootstrap.css", java.lang.String.class, (PageContext)_jspx_page_context, null) + "\" />");
       out.write("<link rel=\"stylesheet\" href=\"" + (java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${res}/css/jumbotron-narrow.css", java.lang.String.class, (PageContext)_jspx_page_context, null) + "\" />");
+      out.write("<script src=\"" + (java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${res}/js/jquery.js", java.lang.String.class, (PageContext)_jspx_page_context, null) + "\">");
+      out.write("</script>");
       if (_jspx_meth_spring_message_0(_jspx_page_context))
         return;
       out.write("<title>");

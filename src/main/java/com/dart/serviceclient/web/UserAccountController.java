@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/useraccounts")
 @Controller
@@ -68,7 +69,7 @@ public class UserAccountController {
 	}
 	
 	@RequestMapping("/enable")
-	public String enableLogin(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
+	public String enableLogin1(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
 		UserAccount userAccount = userService.findUserAccount(new Long(id));
 			userAccount.setDisableLogin(false);
 			userService.updateUserAccount(userAccount);
@@ -78,7 +79,7 @@ public class UserAccountController {
 	}
 	
 	@RequestMapping("/disable")
-	public String disableLogin(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
+	public String disableLogin1(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
 		UserAccount userAccount = userService.findUserAccount(new Long(id));
 			userAccount.setDisableLogin(true);
 			userService.updateUserAccount(userAccount);
@@ -86,6 +87,35 @@ public class UserAccountController {
 			uiModel.addAttribute("listUsers", listUsersAccounts);
 			return "users/list";
 	}
+	
+	@ResponseBody
+	@RequestMapping("/enableDisable")
+	public String enableLogin(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
+		UserAccount userAccount = userService.findUserAccount(new Long(id));
+		String value;
+		if(userAccount.isDisableLogin()){
+			userAccount.setDisableLogin(false);
+			// userAccount.setAccountLocked(true);
+			value="Enable";
+		}else{
+			userAccount.setDisableLogin(true);
+			value="Disable";
+		}
+
+		userService.updateUserAccount(userAccount);
+			return value;
+	}
+	
+	/*@ResponseBody
+	@RequestMapping("/disable")
+	public String disableLogin(@RequestParam("id") String id, HttpServletRequest request, Model uiModel) {
+		UserAccount userAccount = userService.findUserAccount(new Long(id));
+			userAccount.setDisableLogin(true);
+			userService.updateUserAccount(userAccount);
+			//List<UserAccount> listUsersAccounts=userService.findAllUserAccounts();
+			//uiModel.addAttribute("listUsers", listUsersAccounts);
+			return "Enable";
+	} */
 	
 	
 }
