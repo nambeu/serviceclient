@@ -43,6 +43,17 @@
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
 				<li class=""><a href="${list}">List Accounts</a></li>
+				  <c:if test="${pageContext['request'].userPrincipal != null}">
+				    <c:out value=" | "/>
+				   <li>
+				   	 <span>
+				      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
+				      <a href="${logout}">
+				        <spring:message code="security_logout"/>
+				      </a>
+				    </span>
+				   </li>
+				  </c:if>
 			</ul>
 			<h3 class="text-muted">Project name</h3>
 		</div>
@@ -54,6 +65,15 @@
 
 		<div class="footer">
 			<p>© Company 2014</p>
+			  <c:if test="${pageContext['request'].userPrincipal != null}">
+			    <c:out value=" | "/>
+			    <span>
+			      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
+			      <a href="${logout}">
+			        <spring:message code="security_logout"/>
+			      </a>
+			    </span>
+			  </c:if>
 		</div>
 
 	</div>
