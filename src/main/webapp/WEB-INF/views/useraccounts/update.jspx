@@ -11,5 +11,6 @@
         <field:checkbox field="accountLocked" id="c_com_dart_serviceclient_domain_UserAccount_accountLocked" z="tO74IeQGcRy0zgeuwtLSyP4skFc="/>
         <field:datetime dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="c_com_dart_serviceclient_domain_UserAccount_credentialExpiration" z="fnv5bW3cE4wtTFzdyG3W1RqI184="/>
         <field:input field="confirmPassword" id="c_com_dart_serviceclient_domain_UserAccount_confirmPassword" z="ie5D41pJ1wOuPmLN7xNAkr+HdJ0="/>
+        <field:select field="roles" id="c_com_dart_serviceclient_domain_UserAccount_roles" items="${userroles}" path="userroles" z="3U6Nu5UaYvu/+G3YCvmTmxoIgcA="/>
     </form:update>
 </div>
