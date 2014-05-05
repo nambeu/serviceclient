@@ -3,13 +3,15 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_dart_serviceclient_domain_UserAccount" modelAttribute="userAccount" path="/useraccounts" render="${empty dependencies}" z="mFaVYzUOmXcBOAfQ89WQvv4mNcI=">
-        <field:input field="userName" id="c_com_dart_serviceclient_domain_UserAccount_userName" z="wuZ/QcAv5+rlh2F7ubq3W9BTpXU="/>
-        <field:input field="password" id="c_com_dart_serviceclient_domain_UserAccount_password" z="ZOOKn86NeZma8NtyyHyLyLsjYY0="/>
+        <field:input field="userName" id="c_com_dart_serviceclient_domain_UserAccount_userName" min="5" required="true" z="BjxIy56VnEYn+tk+XbxVtN4alig="/>
+        <field:input field="password" id="c_com_dart_serviceclient_domain_UserAccount_password" min="6" required="true" z="BlY9s+F3IvsWU1EhGdyxsClkFPU="/>
         <field:input field="email" id="c_com_dart_serviceclient_domain_UserAccount_email" required="true" validationMessageCode="field_invalid_email" validationRegex="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" z="1ymwWhj629IPneCdQwNgfSp4nEs="/>
         <field:datetime dateTimePattern="${userAccount_accountexpiration_date_format}" field="accountExpiration" id="c_com_dart_serviceclient_domain_UserAccount_accountExpiration" z="DNNvNFx8P1OrlabZZBHLA4j+cb0="/>
         <field:checkbox field="disableLogin" id="c_com_dart_serviceclient_domain_UserAccount_disableLogin" z="n2YYvfYZK71iRfkmttonAJoJSA8="/>
         <field:checkbox field="accountLocked" id="c_com_dart_serviceclient_domain_UserAccount_accountLocked" z="tO74IeQGcRy0zgeuwtLSyP4skFc="/>
         <field:datetime dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="c_com_dart_serviceclient_domain_UserAccount_credentialExpiration" z="fnv5bW3cE4wtTFzdyG3W1RqI184="/>
+        <field:input field="confirmPassword" id="c_com_dart_serviceclient_domain_UserAccount_confirmPassword" z="ie5D41pJ1wOuPmLN7xNAkr+HdJ0="/>
+        <field:select field="roles" id="c_com_dart_serviceclient_domain_UserAccount_roles" items="${userroles}" path="userroles" z="3U6Nu5UaYvu/+G3YCvmTmxoIgcA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_dart_serviceclient_domain_UserAccount" render="${not empty dependencies}" z="mznPONy6N1m1pAvG07g7oC1s0rM="/>
 </div>

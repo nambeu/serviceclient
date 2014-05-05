@@ -21,7 +21,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<UserAccount, String> ApplicationConversionServiceFactoryBean.getUserAccountToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dart.serviceclient.domain.UserAccount, java.lang.String>() {
             public String convert(UserAccount userAccount) {
-                return new StringBuilder().append(userAccount.getUserName()).append(' ').append(userAccount.getPassword()).append(' ').append(userAccount.getEmail()).append(' ').append(userAccount.getAccountExpiration()).toString();
+                return new StringBuilder().append(userAccount.getUserName()).append(' ').append(userAccount.getPassword()).append(' ').append(userAccount.getConfirmPassword()).append(' ').append(userAccount.getEmail()).toString();
             }
         };
     }

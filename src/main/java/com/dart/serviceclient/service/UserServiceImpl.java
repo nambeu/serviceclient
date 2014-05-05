@@ -1,6 +1,13 @@
 package com.dart.serviceclient.service;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+import java.util.List;
+
+import com.dart.serviceclient.domain.UserAccount;
+
+>>>>>>> master
 
 import org.springframework.stereotype.Service;
 
@@ -26,5 +33,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean sendPassword(String email,String password){
 		return true;
+	}
+	public List<UserAccount> findByUserName(String userName){
+		return userRepository.findByUserName(userName);
 	}
 }

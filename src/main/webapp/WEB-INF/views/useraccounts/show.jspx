@@ -10,5 +10,7 @@
         <field:display field="disableLogin" id="s_com_dart_serviceclient_domain_UserAccount_disableLogin" object="${useraccount}" z="YjeSCm4JkOCpvkOk6VNUSc54SZ8="/>
         <field:display field="accountLocked" id="s_com_dart_serviceclient_domain_UserAccount_accountLocked" object="${useraccount}" z="FBaljH2K7OAsoqCAoiBVrIHi4HU="/>
         <field:display date="true" dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="s_com_dart_serviceclient_domain_UserAccount_credentialExpiration" object="${useraccount}" z="19XUWUU3odrjMLPf6fwwh8Jbl6Q="/>
+        <field:display field="confirmPassword" id="s_com_dart_serviceclient_domain_UserAccount_confirmPassword" object="${useraccount}" z="ic0REFnZhSaovA6pUi2lmwu+XN8="/>
+        <field:display field="roles" id="s_com_dart_serviceclient_domain_UserAccount_roles" object="${useraccount}" z="3zSQMd+S1lIBSZ3aNZ6/4ABe/R8="/>
     </page:show>
 </div>

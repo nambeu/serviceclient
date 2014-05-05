@@ -4,7 +4,9 @@
 package com.dart.serviceclient.domain;
 
 import com.dart.serviceclient.domain.UserAccount;
+import com.dart.serviceclient.domain.UserRole;
 import java.util.Date;
+import java.util.Set;
 
 privileged aspect UserAccount_Roo_JavaBean {
     
@@ -22,6 +24,14 @@ privileged aspect UserAccount_Roo_JavaBean {
     
     public void UserAccount.setPassword(String password) {
         this.password = password;
+    }
+    
+    public String UserAccount.getConfirmPassword() {
+        return this.confirmPassword;
+    }
+    
+    public void UserAccount.setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
     
     public String UserAccount.getEmail() {
@@ -62,6 +72,14 @@ privileged aspect UserAccount_Roo_JavaBean {
     
     public void UserAccount.setCredentialExpiration(Date credentialExpiration) {
         this.credentialExpiration = credentialExpiration;
+    }
+    
+    public Set<UserRole> UserAccount.getRoles() {
+        return this.roles;
+    }
+    
+    public void UserAccount.setRoles(Set<UserRole> roles) {
+        this.roles = roles;
     }
     
 }
