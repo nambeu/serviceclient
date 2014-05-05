@@ -12,6 +12,8 @@
 hs_err_pid*
 .classpath 
 .project
-.settings
+.settings/
 target/
 .springBeans
+.classpath
+bin/

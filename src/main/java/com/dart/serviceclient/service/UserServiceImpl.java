@@ -1,13 +1,7 @@
 package com.dart.serviceclient.service;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
 import java.util.List;
-
-import com.dart.serviceclient.domain.UserAccount;
-
->>>>>>> master
 
 import org.springframework.stereotype.Service;
 
