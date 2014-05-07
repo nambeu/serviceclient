@@ -4,9 +4,11 @@
 package com.dart.serviceclient.web;
 
 import com.dart.serviceclient.domain.UserAccount;
+import com.dart.serviceclient.domain.UserRole;
 import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.web.UserAccountController;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,6 +101,7 @@ privileged aspect UserAccountController_Roo_Controller {
     void UserAccountController.populateEditForm(Model uiModel, UserAccount userAccount) {
         uiModel.addAttribute("userAccount", userAccount);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("userroles", Arrays.asList(UserRole.values()));
     }
     
     String UserAccountController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
