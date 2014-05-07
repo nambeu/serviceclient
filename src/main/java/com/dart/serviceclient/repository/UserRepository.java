@@ -5,4 +5,5 @@ import org.springframework.roo.addon.layers.repository.jpa.RooJpaRepository;
 
 @RooJpaRepository(domainType = UserAccount.class)
 public interface UserRepository {
+
 }

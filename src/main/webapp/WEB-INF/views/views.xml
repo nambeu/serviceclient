@@ -40,5 +40,10 @@
   <definition name="uncaughtException" extends="public">
     <put-attribute name="body" value="/WEB-INF/views/uncaughtException.jspx" />
   </definition>
+  
+   <definition name="changePass" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/resetPassWd.jspx" />
+  </definition>
+  
 
 </tiles-definitions>

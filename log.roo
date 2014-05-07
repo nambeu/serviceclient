@@ -22,3 +22,20 @@ exit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-04-22 16:23:41
 exit
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-04-22 16:24:29
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 16:08:18
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 17:06:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 19:24:25
+class --class ~.domain.ResetPassword --rooAnnotations true
+field string --fieldName userN --notNull --sizeMin 5
+field string --fieldName passW --notNull --sizeMin 6
+field string --fieldName NewpassOne --notNull --sizeMin 6
+field string --fieldName NewpassTwo --notNull --sizeMin 6
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 20:20:37
+controller scaffold --class ~.domain.ResetPasswordController --entity ~.domain.ResetPassword
+class --class ~.domain.ResetPasswordBean --rooAnnotations true
+field string --fieldName userName --notNull --sizeMin 5
+field string --fieldName password --notNull --sizeMin 6
+field string --fieldName passwordOne --notNull --sizeMin 6
+field string --fieldName passwordTwo --notNull --sizeMin 6
+controller scaffold --class ~.domain.ResetPasswordBeanController --entity ~.domain.ResetPasswordBean
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-04 13:19:18

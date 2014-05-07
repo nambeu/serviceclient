@@ -14,37 +14,38 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 
+import com.dart.serviceclient.service.UserService;
+
 @RooJavaBean
 @RooToString
 @RooJpaEntity
 public class UserAccount {
 
-    @Column(unique = true)
-    @NotNull
-    @Size(min=5,message="Please enter  at least 5 caracters")
-    private String userName;
+	@Column(unique = true)
+	@NotNull
+	@Size(min = 5, message = "Please enter  at least 5 caracters")
+	private String userName;
 
-    @NotNull
-    @Size(min=6,message="Please your password must be at least 6 characters")
-    private String password;
-    
-    private String confirmPassword;
+	@NotNull
+	@Size(min = 6, message = "Please your password must be at least 6 characters")
+	private String password;
 
-    @NotNull
-    @Pattern(regexp = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message="Please enter your e-mail address !!")
-    private String email;
+	private String confirmPassword;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
-    private Date accountExpiration;
+	@NotNull
+	@Pattern(regexp = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}", message = "Please enter your e-mail address !!")
+	private String email;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
+	private Date accountExpiration;
 
-    private boolean disableLogin;
+	private boolean disableLogin;
 
+	private boolean accountLocked;
 
-    private boolean accountLocked;
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
+	private Date credentialExpiration;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
-    private Date credentialExpiration;
 }
