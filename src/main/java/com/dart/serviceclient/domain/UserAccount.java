@@ -26,7 +26,6 @@ import org.springframework.util.Assert;
 @RooJpaEntity
 public class UserAccount {
 
-
 	@Column(unique = true)
 	@NotNull
 	@Size(min = 5, message = "Please enter  at least 5 caracters")
