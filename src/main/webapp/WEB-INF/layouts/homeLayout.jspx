@@ -82,7 +82,7 @@
 			  </c:if>
 			  
 			  <spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
-			  <c:out value=" | "/><a href="${login}"> login</a>
+			  <c:out value=" | "/><a href="${login}"> Login</a>
 		</div>
 
 	</div>
