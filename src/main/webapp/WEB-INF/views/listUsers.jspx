@@ -6,16 +6,17 @@
 	<jsp:output omit-xml-declaration="yes" />
 <div style="font-size: 24px; font-weight: bold;" class="text-center text-primary">List of user accounts</div>
 	<div class="row">
-  <div class="col-lg-4 navbar-brand">UserName</div>
-  <div class="col-lg-4 navbar-brand">Email</div>
-  <div class="col-lg-4 navbar-brand">Disable/Enable</div>
+  <div class="col-lg-3 navbar-brand">UserName</div>
+  <div class="col-lg-5 navbar-brand">Email</div>
+  <div class="col-lg-2 navbar-brand">Disable/Enable</div>
+  <div class="col-lg-2 navbar-brand">Delete</div>
 </div>
 
 <c:forEach items="${listUsers}" var="users">
-<div class="row">
-  <div class="col-lg-4 navbar-brand">${users.userName}</div>
-  <div class="col-lg-4 navbar-brand">${users.email}</div>
-  <div class="col-lg-4 navbar-brand">
+<div id="lg-${users.id}" class="row tr">
+  <div class="col-lg-3 navbar-brand">${users.userName}</div>
+  <div class="col-lg-5 navbar-brand">${users.email}</div>
+  <div class="col-lg-2 navbar-brand">
   
   <spring:url value="/useraccounts/enableDisable" var="link_url"></spring:url>
   <a id="${users.id}" class="lien btn btn-warning btn-sm">
@@ -23,8 +24,12 @@
   <c:if test="${users.disableLogin eq true}">Disable</c:if>
   <c:if test="${users.disableLogin eq false}">Enable</c:if></a>
   
-  
   </div>
+  <div class="col-lg-2 navbar-brand">
+	<spring:url value="/useraccounts/delete?id=${users.id}" var="delete_url"></spring:url>
+	
+		<a  id="AB${users.id}" class="del btn btn-danger btn-sm">Delete </a>
+	</div>
 </div>
 </c:forEach>
 
@@ -45,4 +50,43 @@
 	});
 	
 </script>
+
+<script> 
+	console.log("Scrip suppression");
+	
+	
+	$(".del").each(function(){
+		
+			$(this).click(function(){
+				//utilisation d'une simple variable déclarée plus haut
+			
+				var xid=$(this).parent().parent(".tr");
+				
+				console.log(xid);
+					var cle = $(xid).attr("id");
+				
+				//declaration d'une var qui recupère la clé associée à ue ligne ds le tableau
+				
+				console.log(cle);
+				//construction de l'ur de suppression
+				console.log("frabrication du lien");
+				
+				var lien = "${delete_url}?id="+cle;
+				
+			console.log(lien);
+				
+				$("#"+cle).remove();
+				console.log("end of removing");
+				
+				$.get(lien,function(reponse){
+					
+					console.log("recpetion de la ressource");
+					console.log(reponse);
+					});
+			});
+	});
+		
+		
+</script>
+
 </div>

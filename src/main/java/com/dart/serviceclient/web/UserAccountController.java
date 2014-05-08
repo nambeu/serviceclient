@@ -132,5 +132,19 @@ public class UserAccountController {
 	//
 	// return "resetPassController/newUser";
 	// }
+	
+	@ResponseBody
+	@RequestMapping("/delete")
+	public String deleteUser(@RequestParam("id") String id, HttpServletRequest request, Model uiModel){
+		
+		String[] t= new String[2];
+		t= id.split("-");
+		System.out.println("l'id kon a est: "+t[1]);
+		UserAccount userAccount = userService.findUserAccount(new Long(t[1]));
+		userService.deleteUserAccount(userAccount);
+		List<UserAccount> listUseraccounts = userService.findAllUserAccounts();
+
+		return "true";
+	}
 
 }
