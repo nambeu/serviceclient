@@ -8,94 +8,46 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 
-
-
-	<TABLE align="center" width="600">
-
 		<spring:url value="/resetPassController/resetpasswd2" var="changePass" />
-
 		<form:form method="get" commandName="resetPasswordBean" action="${changePass}">
+ <div style="background-color: transparent;font-weight:100; float: right;">
+<a href="?lang=en">en</a> | <a href="?lang=fr" class="clickme">fr</a></div> 
 
 
-			<TR>
-				<TD></TD>
-				<TD width="300" align="right" valign="middle"><span
-					style="float: right"> <a href="?lang=en">en</a> | <a
-						href="?lang=fr" class="clickme">fr</a>
-				</span></TD>
+<div class="form-group">
+      <form:label path="userName" for="passToUse">
+      <spring:message code="label.userName" /></form:label>
+      <form:input cssClass="form-control" size="30" path="userName" id="login" placeholder="Enter your user Name" />
+      <form:errors path="userName" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_error_userName"></form:errors>
+    </div>
+    
+    <div class="form-group">
+      <form:label path="password" for="passToUse1">
+      <spring:message code="label.passToUse1" /></form:label>
+      <form:password cssClass="form-control" size="30" path="password" id="password" placeholder="Enter your previous password" />
+      <form:errors path="password" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_error_password"></form:errors>
+    </div>
+    
+     <div class="form-group">
+      <form:label path="passwordOne" for="passToUse2">
+      <spring:message code="label.passToUse2" /></form:label>
+      <form:password cssClass="form-control" size="10" path="passwordOne" id="password1" placeholder="Enter the new password" />
+      <form:errors path="passwordOne" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_error_passwordOne"></form:errors>
+    </div>
+    
+    <div class="form-group">
+      <form:label path="passwordTwo" for="passToUse2.2">
+      <spring:message code="label.passToUse2.2" /></form:label>
+      <form:password cssClass="form-control" size="10" path="passwordTwo" id="password2" placeholder="Please retype the new password" />
+      <form:errors path="passwordTwo" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_error_passwordTwo"></form:errors>
+    </div>
+		
+<div style="color:red;background-color: transparent; padding:3px;font-weight:bold">${bestTwoPass}<BR />${bestSet}</div>
 
-			</TR>
-			<TR>
-				<TD><label class="" for="passToUse"><spring:message
-							code="label.userName" /></label> <form:input cssClass="form-control"
-						path="userName" placeholder="Enter your user Name" /></TD>
-				<TD width="300" align="right" valign="middle"><form:errors
-						cssStyle="color: red;" cssClass="error" path="userName"
-						id="_error_userName" /></TD>
+<div><span style="margin-right: 10px"><input type="reset" class="btn btn-primary btn-sm" value="Cancel" /></span> <SPAN><input type="submit" class="btn btn-primary btn-sm" value="Send" /></SPAN></div>
 
-			</TR>
-			<TR>
-				<TD><BR /></TD>
-				<TD></TD>
-			</TR>
-			<TR>
-				<TD><label class="" for="passToUse1"><spring:message
-							code="label.passToUse1"></spring:message></label> <form:password
-						cssClass="form-control" path="password"
-						placeholder="Enter your previous password" /></TD>
-				<TD width="300" align="right" valign="middle"><form:errors
-						cssStyle="color: red;" cssClass="error" path="password"
-						id="_error_password" /></TD>
-			</TR>
-			<TR>
-				<TD><BR /></TD>
-				<TD></TD>
-			</TR>
-			<TR>
-				<TD><label class="" for="passToUse2"><spring:message
-							code="label.passToUse2"></spring:message></label> <form:password
-						cssClass="form-control" path="passwordOne"
-						placeholder="Enter the new password" /></TD>
-				<TD width="300" align="right" valign="middle"><form:errors
-						cssStyle="color: red;" cssClass="error" path="passwordOne"
-						id="_error_passwordOne" /></TD>
-			</TR>
-			<TR>
-				<TD><BR /></TD>
-				<TD></TD>
-			</TR>
-			<TR>
-				<TD><label class="" for="passToUse2.2"><spring:message
-							code="label.passToUse2.2"></spring:message></label> <form:password
-						cssClass="form-control" path="passwordTwo"
-						placeholder="Please retype the new password" /></TD>
-				<TD width="300" align="right" valign="middle"><form:errors
-						cssStyle="color: red;" cssClass="error" path="passwordTwo"
-						id="_error_passwordTwo" /></TD>
+</form:form>
 
-			</TR>
-			<TR style="color: red;">
-				<TD><BR />${bestTwoPass}</TD>
-				<TD><BR />${bestSet}</TD>
-			</TR>
-			<TR>
-				<TD><BR /></TD>
-				<TD></TD>
-			</TR>
-
-			<TR>
-				<TD align="center">
-					<button type="reset" class="btn btn-primary"
-						style="margin-right: 20px" id="del">Cancel</button>
-					<button type="submit" class="btn btn-primary" id="to">Send</button>
-				</TD>
-			</TR>
-		</form:form>
-
-
-	</TABLE>
-
-	<BR />
 
 
 
