@@ -1,5 +1,3 @@
-
-
 <div xmlns:spring="http://www.springframework.org/tags"
 	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
 	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
@@ -8,33 +6,47 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 
-<spring:url value="/useraccounts/creer" var="create_url"></spring:url>
-<sf:form method="post" action="${create_url}" commandName="userAccount"   >
+	<!--  not clean declaration of url     :   create_url -->
+	<spring:url value="/useraccounts/creer" var="createUrl"></spring:url>
+	<sf:form method="post" action="${createUrl}" commandName="userAccount">
 
-  <fieldset>
-    <legend>Sign up</legend>
-   <div style="color:green;background-color: transparent; padding:3px;font-weight:bold">${msg}</div>
-    <div class="form-group">
-      <sf:label path="userName">Login :</sf:label>
-      <sf:input cssClass="form-control" size="30" path="userName" id="login" placeholder="Enter login" />
-      <sf:errors path="userName" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_userName_error_id"></sf:errors>
-    </div>
-     <div class="form-group">
-      <sf:label path="password">Password :</sf:label>
-      <sf:password cssClass="form-control" path="password" id="password" placeholder="Password" />
-      <sf:errors path="password" id="_password_error_id" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="errors"></sf:errors>
-    </div>
-     <div class="form-group">
-      <sf:label path="confirmPassword">Confirm password</sf:label>
-      <sf:password cssClass="form-control" path="confirmPassword" id="confPassword" placeholder="Confirm password" />
-      <sf:errors path="confirmPassword" id="_confirmPassword_error_id" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error"></sf:errors>
-    </div>
-    <div class="form-group">
-      <sf:label path="email">Email address</sf:label>
-      <sf:input cssClass="form-control" path="email" id="email" placeholder="Enter email" />
-      <sf:errors path="email" cssStyle="color:red;background-color: #f2dede; padding:3px" cssClass="has-error" id="_email_error_id" ></sf:errors>
-    </div>
-    <input type="submit" class="btn btn-info" value="Creer" />
-  </fieldset>
-</sf:form>
+		<fieldset>
+			<legend>Sign up</legend>
+			<div
+				style="color: green; background-color: transparent; padding: 3px; font-weight: bold">${msg}</div>
+			<div class="form-group">
+				<sf:label path="userName">Login :</sf:label>
+				<sf:input cssClass="form-control" size="30" path="userName"
+					id="login" placeholder="Enter login" />
+				<sf:errors path="userName"
+					cssStyle="color:red;background-color: #f2dede; padding:3px"
+					cssClass="has-error" id="_userName_error_id"></sf:errors>
+			</div>
+			<div class="form-group">
+				<sf:label path="password">Password :</sf:label>
+				<sf:password cssClass="form-control" path="password" id="password"
+					placeholder="Password" />
+				<sf:errors path="password" id="_password_error_id"
+					cssStyle="color:red;background-color: #f2dede; padding:3px"
+					cssClass="errors"></sf:errors>
+			</div>
+			<div class="form-group">
+				<sf:label path="confirmPassword">Confirm password</sf:label>
+				<sf:password cssClass="form-control" path="confirmPassword"
+					id="confPassword" placeholder="Confirm password" />
+				<sf:errors path="confirmPassword" id="_confirmPassword_error_id"
+					cssStyle="color:red;background-color: #f2dede; padding:3px"
+					cssClass="has-error"></sf:errors>
+			</div>
+			<div class="form-group">
+				<sf:label path="email">Email address</sf:label>
+				<sf:input cssClass="form-control" path="email" id="email"
+					placeholder="Enter email" />
+				<sf:errors path="email"
+					cssStyle="color:red;background-color: #f2dede; padding:3px"
+					cssClass="has-error" id="_email_error_id"></sf:errors>
+			</div>
+			<input type="submit" class="btn btn-primary" value="Creer" />
+		</fieldset>
+	</sf:form>
 </div>
