@@ -2,7 +2,9 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:tiles="http://tiles.apache.org/tags-tiles"
 	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+
 
 <jsp:output doctype-root-element="HTML"
 	doctype-system="about:legacy-compat" />
@@ -19,9 +21,31 @@
 <!-- <link href="${res}/css/louis.css" rel="stylesheet" /> -->
 <link href="${res}/css/bootstrap.css" rel="stylesheet" />
 
+<!-- Bootstrap with beautifful icons to ameliorate the result-->
+<link href="${res}/css/icon.css" rel="Stylesheet" />
+
 <!-- Custom styles for this template -->
 <link href="${res}/css/jumbotron-narrow.css" rel="stylesheet" />
-<script src="${res}/js/jquery.js"><!--co--></script>
+<script src="${res}/js/jquery.js">
+<!--co-->
+	
+</script>
+
+<!--  Bootstrap dropdown menu  -->
+<script src="${res}/js/bootstrap.js">
+<!--co-->
+	
+</script>
+
+<script src="${res}/js/bootstrap-dropdown.js">
+<!--co-->
+	
+</script>
+
+<script src="${res}/js/bootstrap-button.js">
+<!--co-->
+	
+</script>
 
 <!-- <script src="${res}/js/louis.js"></script> -->
 <spring:message code="application_name" var="app_name"
@@ -34,31 +58,60 @@
 	<div class="container">
 		<div class="header">
 			<ul class="nav nav-pills pull-right">
-				<li class="active">
-				<spring:url value="/index" var="home"></spring:url>
-				<a href="${home}">Home</a></li>
+				<li class="active"><spring:url value="/index" var="home"></spring:url>
+					<a href="${home}">Home<i class="icon-home"> <!--c--></i></a></li>
 				<spring:url value="/useraccounts/about" var="about"></spring:url>
 				<li class="active"><a href="${about}">About</a></li>
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
-				<li class=""><a href="${list}">List Accounts</a></li>
-
-				
 				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
-				<li class=""><a href="${change}">Change PassWord</a></li>
-				
-				  <c:if test="${pageContext['request'].userPrincipal != null}">
-				    <c:out value=" | "/>
-				   <li>
-				   	 <span>
-				      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
-				      <a href="${logout}">
-				        <spring:message code="security_logout"/>
-				      </a>
-				    </span>
-				   </li>
-				  </c:if>
+
+				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
+				<sec:authorize  ifNotGranted="ADMIN,USER">
+					<spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
+					<li class="active"><a href="${login}"><i class="icon-play">
+								<!--c-->
+						</i> Log in</a></li>
+				</sec:authorize>
+
+				<sec:authorize access="hasAnyRole('ADMIN','USER')">
+					<li><div class="btn-group">
+							<button class="btn btn-primary">
+								Users <i class="icon-group"> <!--c-->
+								</i>
+							</button>
+							<button class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+
+
+								<!-- pour afficher les liens en fonction des droits sur le site		 -->
+								<sec:authorize access="hasRole('ADMIN') ">
+									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
+										</i> List Accounts</a></li>
+								</sec:authorize>
+								<sec:authorize access="hasRole('USER')">
+									<li><a href="${change}"><i class="icon-key"> <!--c-->
+										</i> Change PassWord</a></li>
+								</sec:authorize>
+								<!-- pour afficher le log in pour les visiteurs -->
+
+
+								<sec:authorize access="hasAnyRole('ADMIN','USER')">
+									<spring:url value="/resources/j_spring_security_logout"
+										var="logout" />
+									<li><a href="${logout}"><i class="icon-off"> <!--c-->
+										</i> Log out</a></li>
+								</sec:authorize>
+
+							</ul>
+						</div></li>
+				</sec:authorize>
+
+
 
 			</ul>
 			<h3 class="text-muted">Project name</h3>
@@ -66,23 +119,29 @@
 
 		<!-- content -->
 		<div>
-			<tiles:insertAttribute name="body" > </tiles:insertAttribute>
+			<tiles:insertAttribute name="body">
+			</tiles:insertAttribute>
 		</div>
 
 		<div class="footer">
 			<p>© Company 2014</p>
-			  <c:if test="${pageContext['request'].userPrincipal != null}">
-			    <c:out value=" | "/>
-			    <span>
-			      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
-			      <a href="${logout}">
-			        <spring:message code="security_logout"/>
-			      </a>
-			    </span>
-			  </c:if>
-			  
-			  <spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
-			  <c:out value=" | "/><a href="${login}"> Login</a>
+			<c:if test="${pageContext['request'].userPrincipal != null}">
+				<sec:authorize access="hasAnyRole('ADMIN','USER')">
+
+					<c:out value=" | " />
+					<span> <spring:url
+							value="/resources/j_spring_security_logout" var="logout" /> <a
+						href="${logout}"> <spring:message code="security_logout" />
+					</a>
+					</span>
+				</sec:authorize>
+			</c:if>
+
+			<spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
+			<sec:authorize ifNotGranted="ADMIN, USER">
+				<c:out value=" | " />
+				<a href="${login}"> Login</a>
+			</sec:authorize>
 		</div>
 
 	</div>

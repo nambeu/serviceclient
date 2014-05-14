@@ -23,7 +23,11 @@
 			</p>
 		</c:if>
 		<spring:url value="/resources/j_spring_security_check" var="form_url" />
-		<br/>
+		<br />
+
+
+
+
 		<div>
 			<form name="f" class="form-horizontal" role="form"
 				action="${fn:escapeXml(form_url)}" method="POST">
@@ -34,8 +38,10 @@
 					</label>
 					<div class="col-sm-10">
 						<input class="form-control" id="j_username" type='text'
-							name='j_username' placeholder="your user name" style="width: 200px" />
+							name='j_username' placeholder="your user name"
+							style="width: 200px" />
 					</div>
+
 				</div>
 				<spring:message code="security_login_form_name_message"
 					var="name_msg" htmlEscape="false" />
@@ -71,12 +77,10 @@
 						<td width="250" align="center"><script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
 							<spring:message code="button_submit" var="submit_label"
 								htmlEscape="false" /> <input id="proceed" type="submit"
-							class="btn btn-primary" value="${fn:escapeXml(submit_label)}" />
-						</td>
+							class="btn btn-primary" value="${fn:escapeXml(submit_label)}" /></td>
 
 						<td width="250"><spring:message code="button_reset"
-								var="reset_label" htmlEscape="false" /><i
-							class="icon-user icon-white"></i> <input id="reset"
+								var="reset_label" htmlEscape="false" /> <input id="reset"
 							class="btn btn-primary" type="reset"
 							value="${fn:escapeXml(reset_label)}" /></td>
 					</tr>
@@ -84,8 +88,11 @@
 				</table>
 
 			</form>
-			<br/><br/>
+			<br /> <br />
+
 		</div>
 	</util:panel>
+
+
 </div>
 
