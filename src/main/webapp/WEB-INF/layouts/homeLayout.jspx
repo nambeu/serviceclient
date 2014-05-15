@@ -66,6 +66,7 @@
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
 				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
+				<spring:url value="/resetPassOnline/callChangePassOnline" var="changePass"></spring:url>
 
 				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
 				<sec:authorize  ifNotGranted="ADMIN,USER">
@@ -93,9 +94,15 @@
 									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
 										</i> List Accounts</a></li>
 								</sec:authorize>
-								<sec:authorize access="hasRole('USER')">
+								<sec:authorize access="hasRole('ADMIN')">
 									<li><a href="${change}"><i class="icon-key"> <!--c-->
 										</i> Change PassWord</a></li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasAnyRole('ADMIN','USER')">
+									<li><a href="${changePass}">
+									<i class="icon-key"> <!--c--></i>
+									 Change my passWord</a></li>
 								</sec:authorize>
 								<!-- pour afficher le log in pour les visiteurs -->
 
