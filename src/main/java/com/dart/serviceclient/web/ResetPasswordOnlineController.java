@@ -50,7 +50,7 @@ public class ResetPasswordOnlineController {
 //		System.out.println("\nConecter en BD : "+userDB.getUserName());
 //		System.out.println("Pass en BD : "+passDB+"\n");
 		
-		if (!passDB.equals(pass)) {
+		if (!pass.isEmpty() && !passDB.equals(pass)) {
 			bindingResult.rejectValue("password", "mypass","The password you enter is not correct, please refill then form correctly !!! !!!");
 		}
 		if (!resetPassOnline.getNewPasswordOne().equals(resetPassOnline.getNewPasswordTwo())) {

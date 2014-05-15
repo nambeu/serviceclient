@@ -3,13 +3,14 @@
  */
 package com.dart.serviceclient.web;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,50 +43,49 @@ public class ResetPassController {
 	@RequestMapping(value = "/resetpasswd2", method = RequestMethod.GET)
 	public String resetPassWd(@Valid ResetPasswordBean resetPasswordBean,
 			BindingResult bindingResult, Model uiModel) {
-		
 		String pass = DigestUtils.sha256Hex(resetPasswordBean.getPassword());
-		
-		if (!resetPasswordBean.getPasswordOne().equals(resetPasswordBean.getPasswordTwo())) {
-			bindingResult.rejectValue("passwordTwo", "conftwo",
-					"The two new pass word are not same, please refill then form correctly !!!!!!");
+
+		if (!resetPasswordBean.getPasswordOne().equals(
+				resetPasswordBean.getPasswordTwo())) {
+			bindingResult
+					.rejectValue("passwordTwo", "conftwo",
+							"The two new pass word are not same, please refill the form correctly !!!!!!");
 		}
 
+		String bestOrBadSet = null;
+		List<UserAccount> myUsers = (ArrayList<UserAccount>) userService
+				.findAllUserAccounts();
 
-		boolean testPassWd = userService.passWordDiff(
-				resetPasswordBean.getPasswordOne(),
-				resetPasswordBean.getPasswordTwo());
-
-		String bestOrBadSet;
-//		String bestTwoPass=;
-
-
-		List<UserAccount> myUsers = (ArrayList<UserAccount>) userService.findAllUserAccounts();
-
-		if(testPassWd){
+		boolean j = false;
+		int k = 0;
 		for (UserAccount user : myUsers) {
 
-			if (user.getUserName().equals(resetPasswordBean.getUserName()) && user.getPassword().equals(pass)) {
-				String newPass = DigestUtils.sha256Hex(resetPasswordBean.getPasswordOne());
+			if (user.getUserName().equals(resetPasswordBean.getUserName())
+					&& user.getPassword().equals(pass)) {
+				String newPass = DigestUtils.sha256Hex(resetPasswordBean
+						.getPasswordOne());
 
 				user.setPassword(newPass);
 				user.setConfirmPassword(newPass);
 
 				userService.updateUserAccount(user);
-
+				j = true;
 				bestOrBadSet = " You have set your pass word successffully";
-				uiModel.addAttribute("bestSet", bestOrBadSet);
-
-			} else {
-				bindingResult.rejectValue("password", "pas",
-						"Your login and password are not correct !!!!");
 			}
+
+			k++;
+			if (!(j) && (k == myUsers.size()))
+				bindingResult
+						.rejectValue("password", "conftwojjj",
+								"the user name and/or pass word don't exist here !!!!!!");
 		}
-		}
+
 		if (bindingResult.hasErrors()) {
 			return "changePass";
 		}
 		
+		uiModel.addAttribute("bestSet", bestOrBadSet);
+
 		return "changePass";
 	}
-
 }
