@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,11 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
+import com.dart.serviceclient.security.Security;
+import com.dart.serviceclient.tools.ValideEmailUtil;
 
 @RequestMapping("/useraccounts")
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
 public class UserAccountController {
+	
+	@Autowired
+	Security security;
 
 	@RequestMapping(value = "/sign")
 	public String selectPage(HttpServletRequest request, Model uiModel) {
@@ -159,5 +165,51 @@ public class UserAccountController {
 
 		return "true";
 	}
+	
+	@RequestMapping("/updateAccount")
+	public String goToUpdate(UserAccount userAccount, HttpServletRequest request, Model uiModel) {
+		
+		 userAccount= security.getUserAccount();
+		
+			System.out.println(userAccount);
+			uiModel.addAttribute("userAccount", userAccount);
+			return "updateAccount";
+		
+	}
+	
+	@RequestMapping("/update")
+	public String updateAccount(UserAccount userAccount, BindingResult result, HttpServletRequest req, Model uiModel){
+		
+		
+		UserAccount user = userService.findUserAccount(userAccount.getId()); 
+		List<UserAccount> list= userService.findAllUserAccounts();
+		ValideEmailUtil validEmail= new ValideEmailUtil();
+		String test= userAccount.getEmail();
+		
+		for(UserAccount var:list){
+			if( (userAccount.getEmail().equals( var.getEmail() ) ) )
+					 
+			{
+				uiModel.addAttribute("info", "cette adresse est déjà presente dans l'application");
+			}
+			else
+			{
+				
+				
+				if (validEmail.isValid(test))
+				{
+					
+					user.setEmail(userAccount.getEmail());
+					userService.updateUserAccount(user);
+					uiModel.addAttribute("info", "modifications effectuée avec succès");
+				}
+				else
+					uiModel.addAttribute("info", "vous n'avez pas entrez une adresse email valide");
+					
+			}
+		}
+		
+		return "updateAccount";
+	} //fin de la methode
 
 }
