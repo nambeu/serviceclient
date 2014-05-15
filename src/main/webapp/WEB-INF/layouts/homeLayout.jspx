@@ -75,7 +75,7 @@
 								<!--c-->
 						</i> Log in</a></li>
 				</sec:authorize>
-				<sec:authorize access="hasRole('VISITOR')">
+				<sec:authorize ifNotGranted="ADMIN,USER">
 				<li class="active"><a href="${change}"><i class="icon-key"> <!--c-->
 				</i> Change Pass</a></li>
 				</sec:authorize>
