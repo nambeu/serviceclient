@@ -4,11 +4,13 @@
 package com.dart.serviceclient.web;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -41,22 +43,22 @@ public class ResetPassController {
 	@RequestMapping(value = "/resetpasswd2", method = RequestMethod.GET)
 	public String resetPassWd(@Valid ResetPasswordBean resetPasswordBean,
 			BindingResult bindingResult, Model uiModel) {
-
-		if (bindingResult.hasErrors()) {
-			return "changePass";
-		}
 		String pass = DigestUtils.sha256Hex(resetPasswordBean.getPassword());
 
-		boolean testPassWd = userService.passWordDiff(
-				resetPasswordBean.getPasswordOne(),
-				resetPasswordBean.getPasswordTwo());
+		if (!resetPasswordBean.getPasswordOne().equals(
+				resetPasswordBean.getPasswordTwo())) {
+			bindingResult
+					.rejectValue("passwordTwo", "conftwo",
+							"The two new pass word are not same, please refill the form correctly !!!!!!");
+		}
 
-		ArrayList<UserAccount> myUsers;
-		myUsers = (ArrayList<UserAccount>) userService.findAllUserAccounts();
+		String bestOrBadSet = null;
+		List<UserAccount> myUsers = (ArrayList<UserAccount>) userService
+				.findAllUserAccounts();
 
+		boolean j = false;
+		int k = 0;
 		for (UserAccount user : myUsers) {
-
-			String bestOrBadSet;
 
 			if (user.getUserName().equals(resetPasswordBean.getUserName())
 					&& user.getPassword().equals(pass)) {
@@ -67,22 +69,23 @@ public class ResetPassController {
 				user.setConfirmPassword(newPass);
 
 				userService.updateUserAccount(user);
-
+				j = true;
 				bestOrBadSet = " You have set your pass word successffully";
+			}
 
-			} else
-				bestOrBadSet = " You are not a user of this website, so this service is not available for you !!!!!!";
-			uiModel.addAttribute("bestSet", bestOrBadSet);
+			k++;
+			if (!(j) && (k == myUsers.size()))
+				bindingResult
+						.rejectValue("password", "conftwojjj",
+								"the user name and/or pass word don't exist here !!!!!!");
 		}
 
-		if (testPassWd) {
-
-		} else {
-			String bestTwoPass = " the two new pass word are not same, please refill then form correctly !!!!!! ";
-			uiModel.addAttribute("bestTwoPass", bestTwoPass);
+		if (bindingResult.hasErrors()) {
+			return "changePass";
 		}
+		
+		uiModel.addAttribute("bestSet", bestOrBadSet);
 
 		return "changePass";
 	}
-
 }

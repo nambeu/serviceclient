@@ -1,6 +1,6 @@
 package com.dart.serviceclient.web;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -34,7 +31,7 @@ public class UserAccountController {
 
 	@RequestMapping(value = "/about")
 	public String selectAbout(HttpServletRequest request, Model uiModel) {
-		
+
 		return "about";
 	}
 
@@ -54,21 +51,37 @@ public class UserAccountController {
 
 		if (!userAccount.getPassword().equals(userAccount.getConfirmPassword())) {
 			bindingResult.rejectValue("confirmPassword", "confPass",
-					"The password are not the same !!");
+					"These password are not the same !!");
 		}
+
+		List<UserAccount> listUser = userService.findAllUserAccounts();
+		for (UserAccount userList : listUser) {
+			
+			if (userAccount.getUserName().equals(userList.getUserName())) {
+				bindingResult
+						.rejectValue("userName", "userNexist",
+								"this user name also exist in this web site, Please change it !!!");
+				break;
+		}
+		}
+		boolean testMail = userService.isAnEmail(userAccount.getEmail());
+		if(testMail)
+			bindingResult.rejectValue("email", "emailExixt", "this mail address also exist in this web site, Please change it !!!");
+			
+
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("userAccount", userAccount);
 			addDateTimeFormatPatterns(uiModel);
 			System.out.println("verif errors");
 			return "signUp";
 		}
-		
+
 		userAccount.getRoles().add(UserRole.USER);
-		
+
 		userService.saveUserAccount(userAccount);
 		uiModel.addAttribute("msg", "The user " + userAccount.getUserName()
 				+ " was successfully created");
-		System.out.println("User was Created");
+		System.out.println("User was Created successfully  !!!");
 		return "signUp";
 	}
 
@@ -145,17 +158,25 @@ public class UserAccountController {
 
 	@ResponseBody
 	@RequestMapping("/delete")
-	@Secured("ROLE_USER")
 	public String deleteUser(@RequestParam("id") String id,
 			HttpServletRequest request, Model uiModel) {
 
 		String[] t = new String[2];
-//		isUserInRole(ROLE_USER);
+		// isUserInRole(ROLE_USER);
 		t = id.split("-");
 		System.out.println("l'id kon a est: " + t[1]);
 		UserAccount userAccount = userService.findUserAccount(new Long(t[1]));
-		userService.deleteUserAccount(userAccount);
 		List<UserAccount> listUseraccounts = userService.findAllUserAccounts();
+		Set<UserRole> roles = userAccount.getRoles();
+		
+		for (UserRole userRole : roles) {
+			if(userRole.equals("ADMIN"))
+					System.out.println("you can not delet an admin");
+				else
+					userService.deleteUserAccount(userAccount);
+
+		}
+		
 
 		return "true";
 	}

@@ -68,12 +68,14 @@
 				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
 
 				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
-				<sec:authorize  ifNotGranted="ADMIN,USER">
+				<sec:authorize ifNotGranted="ADMIN,USER">
 					<spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
 					<li class="active"><a href="${login}"><i class="icon-play">
 								<!--c-->
 						</i> Log in</a></li>
 				</sec:authorize>
+				<li><a href="${change}"><i class="icon-key"> <!--c-->
+					</i> Change Pass</a></li>
 
 				<sec:authorize access="hasAnyRole('ADMIN','USER')">
 					<li><div class="btn-group">
@@ -86,19 +88,12 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-
-
 								<!-- pour afficher les liens en fonction des droits sur le site		 -->
 								<sec:authorize access="hasRole('ADMIN') ">
 									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
 										</i> List Accounts</a></li>
 								</sec:authorize>
-								<sec:authorize access="hasRole('USER')">
-									<li><a href="${change}"><i class="icon-key"> <!--c-->
-										</i> Change PassWord</a></li>
-								</sec:authorize>
 								<!-- pour afficher le log in pour les visiteurs -->
-
 
 								<sec:authorize access="hasAnyRole('ADMIN','USER')">
 									<spring:url value="/resources/j_spring_security_logout"
@@ -110,8 +105,6 @@
 							</ul>
 						</div></li>
 				</sec:authorize>
-
-
 
 			</ul>
 			<h3 class="text-muted">Project name</h3>
