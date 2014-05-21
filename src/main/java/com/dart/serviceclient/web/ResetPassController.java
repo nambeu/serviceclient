@@ -77,7 +77,7 @@ public class ResetPassController {
 			if (!(j) && (k == myUsers.size()))
 				bindingResult
 						.rejectValue("password", "conftwojjj",
-								"the user name and/or pass word don't exist here !!!!!!");
+								"The user name and/or pass word don't exist here !!!!!!");
 		}
 
 		if (bindingResult.hasErrors()) {

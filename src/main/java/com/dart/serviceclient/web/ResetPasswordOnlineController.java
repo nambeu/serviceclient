@@ -13,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+//import antlr.StringUtils;
+
 import com.dart.serviceclient.domain.ResetPasswordOnline;
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.security.Security;
@@ -41,18 +43,20 @@ public class ResetPasswordOnlineController {
 
 	@RequestMapping(value = "/changePassOnline", method = RequestMethod.POST)
 	public String resetPassWd(@Valid ResetPasswordOnline resetPassOnline, BindingResult bindingResult, Model uiModel) {
-		
-		String pass = DigestUtils.sha256Hex(resetPassOnline.getPassword());
-		
+		String pwd =resetPassOnline.getPassword();
+				
 		UserAccount userDB = security.getUserAccount();
 		
 		String passDB = userDB.getPassword();
 //		System.out.println("\nConecter en BD : "+userDB.getUserName());
 //		System.out.println("Pass en BD : "+passDB+"\n");
-		
-		if (!pass.isEmpty() && !passDB.equals(pass)) {
+	//org.h2.util.StringUtils.isNullOrEmpty(pwd);
+		if (pwd!=null && !pwd.isEmpty()) {
+	String pass = DigestUtils.sha256Hex(resetPassOnline.getPassword());
+			if (!passDB.equals(pass)) {
 			bindingResult.rejectValue("password", "mypass","The password you enter is not correct, please refill then form correctly !!! !!!");
-		}
+			}
+			}
 		if (!resetPassOnline.getNewPasswordOne().equals(resetPassOnline.getNewPasswordTwo())) {
 			bindingResult.rejectValue("newPasswordTwo", "conftwo","The two new pass word are not same, please refill then form correctly !!!");
 		}
