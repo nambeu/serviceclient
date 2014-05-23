@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dart_serviceclient_domain_EntrepriseAccount" items="${entrepriseaccounts}" z="GxhjoMPDhR1DCLKCBn3b7I+B6YY=">
+        <table:table data="${entrepriseaccounts}" id="l_com_dart_serviceclient_domain_EntrepriseAccount" path="/entrepriseaccounts" z="IFzi7OhmJpHWu0K76HDht4o5fdg=">
+            <table:column id="c_com_dart_serviceclient_domain_EntrepriseAccount_raisonSocial" property="raisonSocial" z="IPT0b2Kd/mhlQ2I4o/3rQSIGIBk="/>
+            <table:column id="c_com_dart_serviceclient_domain_EntrepriseAccount_registreDeCormmerce" property="registreDeCormmerce" z="PaoPSk1UPiPZxmtskEJfe5uKsN0="/>
+            <table:column id="c_com_dart_serviceclient_domain_EntrepriseAccount_logo" property="logo" z="dNah9/kmzEhD1+9I/h1YsQFAJCQ="/>
+            <table:column id="c_com_dart_serviceclient_domain_EntrepriseAccount_userCreator" property="userCreator" z="f/h+ZdADlzeOvZu0JB6AvSM9wV4="/>
+            <table:column id="c_com_dart_serviceclient_domain_EntrepriseAccount_secteurActivite" property="secteurActivite" z="FUz5rNSDRB3WHIXARfEPwAA7Sgk="/>
+        </table:table>
+    </page:list>
+</div>

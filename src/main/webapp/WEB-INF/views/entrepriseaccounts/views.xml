@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="entrepriseaccounts/list">
+        <put-attribute name="body" value="/WEB-INF/views/entrepriseaccounts/list.jspx"/>
+    </definition>
+<definition extends="default" name="entrepriseaccounts/show">
+        <put-attribute name="body" value="/WEB-INF/views/entrepriseaccounts/show.jspx"/>
+    </definition>
+<definition extends="default" name="entrepriseaccounts/create">
+        <put-attribute name="body" value="/WEB-INF/views/entrepriseaccounts/create.jspx"/>
+    </definition>
+<definition extends="default" name="entrepriseaccounts/update">
+        <put-attribute name="body" value="/WEB-INF/views/entrepriseaccounts/update.jspx"/>
+    </definition>
+<definition extends="homeLayout" name="createEntreprise">
+        <put-attribute name="body" value="/WEB-INF/views/entrepriseaccounts/createEntreprise.jspx"/>
+    </definition> 
+</tiles-definitions>
