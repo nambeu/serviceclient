@@ -7,5 +7,13 @@
             <menu:item id="i_useraccount_new" messageCode="global_menu_new" url="/useraccounts?form" z="dm6iErpLQmgISoPCTS3yLiH8XFA="/>
             <menu:item id="i_useraccount_list" messageCode="global_menu_list" url="/useraccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nijRCp2PPYuD2D3D7hljcdDK4vs="/>
         </menu:category>
+        <menu:category id="c_entrepriseaccount" z="W29rYj9J6u2uD4ETpD8+VhYf0I4=">
+            <menu:item id="i_entrepriseaccount_new" messageCode="global_menu_new" url="/entrepriseaccounts?form" z="X6UQsuTGWa9Walr4AOAzAnocc7M="/>
+            <menu:item id="i_entrepriseaccount_list" messageCode="global_menu_list" url="/entrepriseaccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="BS6Aa8SFeZDh0NIbakoL1PcAcQM="/>
+        </menu:category>
+        <menu:category id="c_secteuractivite" z="+1yHu8yEuP7XBXpeGI4RWcG+Kfk=">
+            <menu:item id="i_secteuractivite_new" messageCode="global_menu_new" url="/secteuractivites?form" z="Alv57rLiDOC21NFzS02K5EisHUI="/>
+            <menu:item id="i_secteuractivite_list" messageCode="global_menu_list" url="/secteuractivites?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/QUMZrwpAptQXzt2+IhLoEdTEE0="/>
+        </menu:category>
     </menu:menu>
 </div>

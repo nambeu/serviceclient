@@ -64,3 +64,37 @@ field set --fieldName roles --type ~.domain.UserRole
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-13 19:52:58
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-14 11:37:48
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-15 12:36:48
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-21 10:15:47
+entity jpa --class ~.domain.EntrepriseAccount
+field string --fieldName raisonSocial --unique 
+field string --fieldName registreDeCormmerce --notNull 
+field string --fieldName logo
+repository jpa --interface ~.repository.EntrepriseRepository --entity ~.domain.EntrepriseAccount
+service type --interface ~.service.EntrepriseService --entity ~.domain.EntrepriseAccount
+controller all --package ~.web
+entity jpa --class ~.domain.SecteurActivite --activeRecord false
+field string --fieldName libelle --unique --notNull 
+repository jpa --interface ~.repository.SecteurActivite --entity ~.domain.SecteurActivite
+service type --interface ~.service.SecteurActivite --entity ~.domain.SecteurActivite
+controller all --package ~.web
+entity jpa --class ~.domain.SecteurActivite --activeRecord false
+field string --fieldName libelle --unique --notNull 
+field string --fieldName description
+repository jpa --interface ~.repository.SecteurActiviteRepository --entity ~.domain.EntrepriseAccount
+service type --interface ~.service.SecteurActiviteService --entity ~.domain.SecteurActivite
+controller all --package ~.web
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-21 17:07:24
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-22 13:45:44
+entity jpa --class ~.domain.SecteurActivite --activeRecord false 
+field string --fieldName libelle --unique --notNull 
+field string --fieldName description
+repository jpa --interface ~.repository.SecteurActiviteRepository --entity ~.domain.SecteurActivite
+service type --interface ~.service.SecteurActiviteService --entity ~.domain.SecteurActivite
+controller all --package com.dart.serviceclient.web
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-22 13:55:30
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-22 13:59:40
+service type --interface ~.service.EntrepriseService --entity ~.domain.EntrepriseAccount
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-22 14:55:53

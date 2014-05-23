@@ -66,6 +66,9 @@
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
 				<spring:url value="/useraccounts/updateAccount" var="updateAccount"></spring:url>
+				
+				<!--  mettre le lien pour creer un compte entreprise -->
+					<spring:url value="/entrepriseaccounts/creerEntreprise" var="createEntrepriseAccount"></spring:url> 
 
 				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
 				<sec:authorize  ifNotGranted="ADMIN,USER">
@@ -102,6 +105,11 @@
 								<sec:authorize access="hasRole('USER')">
 									<li><a href="${updateAccount}"><i class="icon-pencil"> <!--c-->
 										</i> Update my account</a></li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasRole('USER')">
+									<li><a href="${createEntrepriseAccount}"><i class="icon-pencil"> <!--c-->
+										</i> create your entreprise account</a></li>
 								</sec:authorize>
 
 
