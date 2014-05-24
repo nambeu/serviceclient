@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_dart_serviceclient_domain_QuestionToEntreprise" modelAttribute="questionToEntreprise" path="/questiontoentreprises" render="${empty dependencies}" z="Dm5WoIsFSUZ5SWf4ZUD/9UMxGhU=">
+        <field:input field="title" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_title" required="true" z="PB2z8NTIvpJ0kajNdEHtzi82Glg="/>
+        <field:input field="content" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_content" required="true" z="QfsfSRA1rLgFlJhl4Iiou312vCY="/>
+        <field:select field="postUser" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" itemValue="id" items="${useraccounts}" path="/useraccounts" z="FEKizJCNSa94KuvS/63MkUKGXj4="/>
+        <field:select field="receiveUser" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveUser" itemValue="id" items="${useraccounts}" path="/useraccounts" z="LWJTKtfqzn1JnXjBjoO34SJLt6c="/>
+        <field:datetime dateTimePattern="${questionToEntreprise_dateofpost_date_format}" field="dateOfPost" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" z="+wbpsBs8SW+/+210+RMV0I1MS0E="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_dart_serviceclient_domain_QuestionToEntreprise" render="${not empty dependencies}" z="mtHqh80W0CAOSys4lK4l3S20XIg="/>
+</div>
