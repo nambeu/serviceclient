@@ -1,0 +1,7 @@
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-24 12:57:08
+entity jpa --class ~.domain.QuestionToEntreprise --activeRecord false
+field string --fieldName title --notNull 
+field string --fieldName content --notNull 
+field reference --type ~.domain.UserAccount --fieldName postUser
+field reference --type ~.domain.UserAccount --fieldName receiveUser
+field date --type java.util.Date --fieldName dateOfPost --dateTimeFormatPattern "dd-MM-yyyy HH:mm"
