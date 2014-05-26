@@ -8,3 +8,4 @@ field date --type java.util.Date --fieldName dateOfPost --dateTimeFormatPattern 
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-24 16:17:31
 repository jpa --interface ~.repository.QuestionRepository --entity ~.domain.QuestionToEntreprise
 service type --interface ~.service.QuestionService --entity ~.domain.QuestionToEntreprise
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-26 20:00:11
