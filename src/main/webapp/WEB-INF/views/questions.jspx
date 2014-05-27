@@ -19,7 +19,12 @@
 		<form:input path="title" cssClass="form-control"
 			placeholder="Enter your title" />
 		<form:errors path="title" cssClass="has-error" id="_error_title"></form:errors>
-
+		
+		<form:label path="content">content</form:label>
+		<form:input path="content" cssClass="form-control"
+			placeholder="Enter the content of the question ?" />
+		<form:errors path="content" cssClass="has-error" id="_error_content"></form:errors>
+		<input type="submit" class="btn btn-primary" value="Post" />
 	</form:form>
 
 

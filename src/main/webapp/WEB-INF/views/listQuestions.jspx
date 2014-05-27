@@ -7,7 +7,21 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 
-<spring:url value="/questiontoentreprises/"></spring:url>
+	click here to see all the questions post by users to users .... <BR />
+
+	<spring:url value="/questiontoentreprises/listQuestion" var="userquest"></spring:url>
+	<a href="${userquest}?receive=my first question">questions to admin </a>
+<BR />
+<BR />
+
+	<c:forEach items="${listReceive}" var="kk">
+
+${kk.title}
+${kk.content}
+<BR />
+    </c:forEach>
+
+
 
 </div>
 

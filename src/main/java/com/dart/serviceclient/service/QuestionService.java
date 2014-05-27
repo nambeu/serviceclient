@@ -1,6 +1,15 @@
 package com.dart.serviceclient.service;
-import org.springframework.roo.addon.layers.service.RooService;
 
+import java.util.List;
+
+import org.springframework.roo.addon.layers.service.RooService;
+import org.springframework.stereotype.Service;
+
+import com.dart.serviceclient.domain.QuestionToEntreprise;
+
+@Service
 @RooService(domainTypes = { com.dart.serviceclient.domain.QuestionToEntreprise.class })
 public interface QuestionService {
+
+	List<QuestionToEntreprise> findByTitle(String receiver);
 }

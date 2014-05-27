@@ -4,10 +4,8 @@
 package com.dart.serviceclient.service;
 
 import com.dart.serviceclient.domain.QuestionToEntreprise;
-import com.dart.serviceclient.repository.QuestionRepository;
 import com.dart.serviceclient.service.QuestionServiceImpl;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +14,6 @@ privileged aspect QuestionServiceImpl_Roo_Service {
     declare @type: QuestionServiceImpl: @Service;
     
     declare @type: QuestionServiceImpl: @Transactional;
-    
-    @Autowired
-    QuestionRepository QuestionServiceImpl.questionRepository;
     
     public long QuestionServiceImpl.countAllQuestionToEntreprises() {
         return questionRepository.count();
