@@ -12,4 +12,6 @@ import com.dart.serviceclient.domain.QuestionToEntreprise;
 public interface QuestionService {
 
 	List<QuestionToEntreprise> findByTitle(String receiver);
+	List<QuestionToEntreprise> findByReceiveUser_userName(String receiver2);
+
 }

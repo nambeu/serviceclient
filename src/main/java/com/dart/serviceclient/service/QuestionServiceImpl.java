@@ -8,13 +8,18 @@ import com.dart.serviceclient.domain.QuestionToEntreprise;
 import com.dart.serviceclient.repository.QuestionRepository;
 
 public class QuestionServiceImpl implements QuestionService {
-	
+
 	@Autowired
 	QuestionRepository questionRepository;
-	
-	
+
 	@Override
 	public List<QuestionToEntreprise> findByTitle(String receiver) {
 		return questionRepository.findByTitle(receiver);
 	}
+
+	public List<QuestionToEntreprise> findByReceiveUser_userName(
+			String receiver2) {
+		return questionRepository.findByReceiveUser_userName(receiver2);
+	}
+
 }

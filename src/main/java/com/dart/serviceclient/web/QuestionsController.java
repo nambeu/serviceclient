@@ -56,16 +56,14 @@ public class QuestionsController {
 	@RequestMapping(value = "/listQuestion", method = RequestMethod.GET)
 	public String showQuestion(Model uiModel,
 			@RequestParam(value = "receive") String receiver) {
-
-		List<QuestionToEntreprise> listToShow = questionService
-				.findByTitle(receiver);
+//
+//		List<QuestionToEntreprise> listToShow = questionService
+//				.findByTitle(receiver);
+		
+		List<QuestionToEntreprise> listToShow = questionService.findByReceiveUser_userName(receiver);
 
 		uiModel.addAttribute("listReceive", listToShow);
 		
-		System.out.println();
-		System.out
-				.println("recherche terminé dans la base de données des questions");
-
 		return "listQuestionsUser";
 	}
 }
