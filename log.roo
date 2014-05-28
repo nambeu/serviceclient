@@ -7,3 +7,14 @@ class --class ~.email.MailServiceImpl
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 02:15:40
 interface --class ~mail.MailService
 class --class ~.mail.MailServiceImpl
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 12:37:09
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-28 12:41:31
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 12:42:03
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-28 12:44:28
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 12:47:05
+// [failed] json all 
+web mvc json all
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-28 13:00:34

@@ -3,16 +3,18 @@ package com.dart.serviceclient.mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Component;
 
 import com.dart.serviceclient.mail.MailService;
 
+@Component //on peut oci mettre @Service @Component
 public class MailServiceImpl implements MailService {	
 		
 		@Autowired
-		private transient MailSender mailTemplate;
+		private MailSender mailTemplate;
 //		E-mail Sender
 		@Autowired
-		private transient SimpleMailMessage mySimpleMail;
+		private SimpleMailMessage mySimpleMail;
 //		MailMessage	implementation class
 		public void sendMessage(String mailTo, String message) {
 		
