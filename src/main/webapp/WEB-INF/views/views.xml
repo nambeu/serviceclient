@@ -53,6 +53,13 @@
     <put-attribute name="body" value="/WEB-INF/views/resetPassWd.jspx" />
   </definition>
   
+  <definition name="changePassOnline" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/resetPasswordOnline.jspx" />
+  </definition>  
+  
+  <definition name="updateAccount" extends="homeLayout">
+    <put-attribute name="body" value="/WEB-INF/views/updateAccount.jspx" />
+  </definition>  
 
 <definition extends="homeLayout" name="login">
         <put-attribute name="body" value="/WEB-INF/views/login.jspx"/>

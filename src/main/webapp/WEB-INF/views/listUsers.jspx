@@ -1,6 +1,7 @@
 <div xmlns:spring="http://www.springframework.org/tags"
 	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
 	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
@@ -12,6 +13,7 @@
   <div class="col-lg-2 navbar-brand">Delete</div>
 </div>
 
+<!-- <sec:authorize access="hasRole('ADMIN')> -->
 <c:forEach items="${listUsers}" var="users">
 <div id="lg-${users.id}" class="row tr">
   <div class="col-lg-3 navbar-brand">${users.userName}</div>
@@ -32,7 +34,7 @@
 	</div>
 </div>
 </c:forEach>
-
+<!-- </sec:authorize> -->
 <script type="text/javascript">
 
 		console.log("ready verif");

@@ -5,7 +5,7 @@ package com.dart.serviceclient.tools;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
 /**
- * @author ekane
+ * @author admin
  *
  */
 public class ValideEmailUtil {

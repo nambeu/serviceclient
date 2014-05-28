@@ -6,7 +6,7 @@
         <field:input field="raisonSocial" id="c_com_dart_serviceclient_domain_EntrepriseAccount_raisonSocial" required="true" z="U45u/uSYS5ZFHiBue1xDqZHCAZA="/>
         <field:input field="registreDeCormmerce" id="c_com_dart_serviceclient_domain_EntrepriseAccount_registreDeCormmerce" required="true" z="J8zloSbfyLFuzSDQpdN2cHljSCg="/>
         <field:input field="logo" id="c_com_dart_serviceclient_domain_EntrepriseAccount_logo" z="y5+/LEWr87BTs9iyUY/qeT07SKw="/>
-        <field:input field="userCreator" id="c_com_dart_serviceclient_domain_EntrepriseAccount_userCreator" required="true" z="OR44uI5ajt4zluRyk2+tfhiKw88="/>
-        <field:input field="secteurActivite" id="c_com_dart_serviceclient_domain_EntrepriseAccount_secteurActivite" z="yvCXba5YmPrp4Pc1pA6kk5CQIzQ="/>
+        <field:select field="secteurActivite" id="c_com_dart_serviceclient_domain_EntrepriseAccount_secteurActivite" itemValue="id" items="${secteuractivites}" path="/secteuractivites" z="m32WTZwZldHviPQs7Ww4RNlZhio="/>
+        <field:input field="UserCreator" id="c_com_dart_serviceclient_domain_EntrepriseAccount_UserCreator" z="CTf+YMXcNmQokBZ7Tw7ZZe2iCiQ="/>
     </form:update>
 </div>

@@ -65,19 +65,29 @@
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
+
 				<spring:url value="/useraccounts/updateAccount" var="updateAccount"></spring:url>
 				
 				<!--  mettre le lien pour creer un compte entreprise -->
 					<spring:url value="/entrepriseaccounts/creerEntreprise" var="createEntrepriseAccount"></spring:url> 
 
+				<spring:url value="/useraccounts/updateAccount" var="update"></spring:url>
+				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
+				<spring:url value="/resetPassOnline/callChangePassOnline" var="changePass"></spring:url>
+
+
 				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
-				<sec:authorize  ifNotGranted="ADMIN,USER">
+				<sec:authorize ifNotGranted="ADMIN,USER">
 					<spring:url value="/resources/j_spring_security_check" var="login"></spring:url>
 					<li class="active"><a href="${login}"><i class="icon-play">
 								<!--c-->
 						</i> Log in</a></li>
 				</sec:authorize>
-
+				<sec:authorize ifNotGranted="ADMIN,USER">
+				<li class="active"><a href="${change}"><i class="icon-key"> <!--c-->
+				</i> Change Pass</a></li>
+				</sec:authorize>
+				
 				<sec:authorize access="hasAnyRole('ADMIN','USER')">
 					<li><div class="btn-group">
 							<button class="btn btn-primary">
@@ -89,17 +99,24 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
-
-
 								<!-- pour afficher les liens en fonction des droits sur le site		 -->
 								<sec:authorize access="hasRole('ADMIN') ">
 									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
 										</i> List Accounts</a></li>
 								</sec:authorize>
-								<sec:authorize access="hasRole('USER')">
-									<li><a href="${change}"><i class="icon-key"> <!--c-->
-										</i> Change PassWord</a></li>
+								
+								<sec:authorize access="hasAnyRole('ADMIN','USER')">
+									<li><a href="${update}">
+									<i class="icon-pencil"> <!--c--></i>
+									 Update my account</a></li>
+								</sec:authorize>								
+								
+								<sec:authorize access="hasAnyRole('ADMIN','USER')">
+									<li><a href="${changePass}">
+									<i class="icon-key"> <!--c--></i>
+									 Change my password</a></li>
 								</sec:authorize>
+								
 								<!-- pour afficher le log in pour les visiteurs -->
 								
 								<sec:authorize access="hasRole('USER')">
@@ -111,7 +128,6 @@
 									<li><a href="${createEntrepriseAccount}"><i class="icon-pencil"> <!--c-->
 										</i> create your entreprise account</a></li>
 								</sec:authorize>
-
 
 								<sec:authorize access="hasAnyRole('ADMIN','USER')">
 									<spring:url value="/resources/j_spring_security_logout"
@@ -125,8 +141,6 @@
 							</ul>
 						</div></li>
 				</sec:authorize>
-
-
 
 			</ul>
 			<h3 class="text-muted">Project name</h3>

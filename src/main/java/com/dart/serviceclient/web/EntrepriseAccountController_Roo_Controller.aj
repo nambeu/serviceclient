@@ -4,14 +4,11 @@
 package com.dart.serviceclient.web;
 
 import com.dart.serviceclient.domain.EntrepriseAccount;
-import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.service.EntrepriseService;
 import com.dart.serviceclient.service.SecteurActiviteService;
 import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.web.EntrepriseAccountController;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +46,6 @@ privileged aspect EntrepriseAccountController_Roo_Controller {
     @RequestMapping(params = "form", produces = "text/html")
     public String EntrepriseAccountController.createForm(Model uiModel) {
         populateEditForm(uiModel, new EntrepriseAccount());
-        List<String[]> dependencies = new ArrayList<String[]>();
-        if (userService.countAllUserAccounts() == 0) {
-            dependencies.add(new String[] { "useraccount", "useraccounts" });
-        }
-        uiModel.addAttribute("dependencies", dependencies);
         return "entrepriseaccounts/create";
     }
     

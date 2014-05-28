@@ -34,11 +34,11 @@ privileged aspect EntrepriseAccount_Roo_JavaBean {
     }
     
     public UserAccount EntrepriseAccount.getUserCreator() {
-        return this.userCreator;
+        return this.UserCreator;
     }
     
-    public void EntrepriseAccount.setUserCreator(UserAccount userCreator) {
-        this.userCreator = userCreator;
+    public void EntrepriseAccount.setUserCreator(UserAccount UserCreator) {
+        this.UserCreator = UserCreator;
     }
     
     public SecteurActivite EntrepriseAccount.getSecteurActivite() {

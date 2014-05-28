@@ -6,7 +6,7 @@
         <field:display field="raisonSocial" id="s_com_dart_serviceclient_domain_EntrepriseAccount_raisonSocial" object="${entrepriseaccount}" z="U+bmVN4UZsjGVS/YuVnXp4DEDyw="/>
         <field:display field="registreDeCormmerce" id="s_com_dart_serviceclient_domain_EntrepriseAccount_registreDeCormmerce" object="${entrepriseaccount}" z="mYjLRAFzY89j+Pm7QmtNGPkFtbs="/>
         <field:display field="logo" id="s_com_dart_serviceclient_domain_EntrepriseAccount_logo" object="${entrepriseaccount}" z="4w8MjFoa2s38BUfIqFoh5hJsCig="/>
-        <field:display field="userCreator" id="s_com_dart_serviceclient_domain_EntrepriseAccount_userCreator" object="${entrepriseaccount}" z="NrJ0nlcyfHeOSpJfEyYW8pdhYRU="/>
         <field:display field="secteurActivite" id="s_com_dart_serviceclient_domain_EntrepriseAccount_secteurActivite" object="${entrepriseaccount}" z="3vGvzNnmYXw0RBvHOgfb7fGaKw0="/>
+        <field:display field="userCreator" id="s_com_dart_serviceclient_domain_EntrepriseAccount_UserCreator" object="${entrepriseaccount}" z="wMe2QwGdchN0Rxal+X1zTxL9Vxg="/>
     </page:show>
 </div>
