@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
+import com.dart.serviceclient.security.Security;
 import com.dart.serviceclient.service.UserService;
+import com.dart.serviceclient.tools.ValideEmailUtil;
 
 @RequestMapping("/useraccounts")
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
 public class UserAccountController {
+	@Autowired
+	Security security;
 	
 	@RequestMapping(value = "/sign")
 	public String selectPage(HttpServletRequest request, Model uiModel) {
@@ -50,40 +54,45 @@ public class UserAccountController {
 
 		// not clean declaration of object : useraccount
 		// add rol USER for every user created
+		
+		String userN = userAccount.getUserName();
+		String emailN = userAccount.getEmail();
+		if(userN!=null && !userN.isEmpty()){
+		List<UserAccount> users = userService.findByUserName(userN);
+		if(users.size()>0){
+		 bindingResult.rejectValue("userName", "userExist",
+					"This user name also exist in this web site, Please change it !!!");
+		}
+		}
 
 		if (!userAccount.getPassword().equals(userAccount.getConfirmPassword())) {
 			bindingResult.rejectValue("confirmPassword", "confPass",
 					"These password are not the same !!");
 		}
-
-		List<UserAccount> listUser = userService.findAllUserAccounts();
-		for (UserAccount userList : listUser) {
-			
-			if (userAccount.getUserName().equals(userList.getUserName())) {
-				bindingResult
-						.rejectValue("userName", "userNexist",
-								"this user name also exist in this web site, Please change it !!!");
-				break;
-		}
-		}
-		boolean testMail = userService.isAnEmail(userAccount.getEmail());
-		if(testMail)
-			bindingResult.rejectValue("email", "emailExixt", "this mail address also exist in this web site, Please change it !!!");
-			
+		
+		if(emailN!=null && !emailN.isEmpty()){
+			if(ValideEmailUtil.isValid(emailN)){				
+				List<UserAccount> users = userService.findByEmail(emailN);
+				if(users.size()>0){
+					bindingResult.rejectValue("email", "emailExixt", "This address also exist in this web site, Please change it !!!");				
+				}
+			}else {
+				bindingResult.rejectValue("email", "emailExixt", "The adress you enter is not valid !!");
+			}
+			}
 
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("userAccount", userAccount);
 			addDateTimeFormatPatterns(uiModel);
-			System.out.println("verif errors");
+//			System.out.println("verif errors");
 			return "signUp";
 		}
 
 		userAccount.getRoles().add(UserRole.USER);
 
 		userService.saveUserAccount(userAccount);
-		uiModel.addAttribute("msg", "The user " + userAccount.getUserName()
-				+ " was successfully created");
-		System.out.println("User was Created successfully  !!!");
+		uiModel.addAttribute("msg", "The user " +userN+ " was successfully created");
+//		System.out.println("User was Created successfully  !!!");
 		return "signUp";
 	}
 
@@ -166,21 +175,66 @@ public class UserAccountController {
 		String[] t = new String[2];
 		// isUserInRole(ROLE_USER);
 		t = id.split("-");
-		System.out.println("l'id kon a est: " + t[1]);
+		//System.out.println("l'id kon a est delete: " + t[1]);
 		UserAccount userAccount = userService.findUserAccount(new Long(t[1]));
-		List<UserAccount> listUseraccounts = userService.findAllUserAccounts();
+		//List<UserAccount> listUseraccounts = userService.findAllUserAccounts();
 		Set<UserRole> roles = userAccount.getRoles();
 		
 		for (UserRole userRole : roles) {
 			if(userRole.equals("ADMIN"))
-					System.out.println("you can not delet an admin");
+					System.out.println("you can not delete an administrator");
 				else
 					userService.deleteUserAccount(userAccount);
 
 		}
-		
-
 		return "true";
 	}
+	
+	@RequestMapping("/updateAccount")
+	public String goToUpdate(UserAccount userAccount, HttpServletRequest request, Model uiModel) {
+		
+		 userAccount= security.getUserAccount();
+		
+//			System.out.println(userAccount);
+			uiModel.addAttribute("userAccount", userAccount);
+			return "updateAccount";
+		
+	}
+	
+	@RequestMapping("/modifier")
+	public String updateAccount(UserAccount userAccount, BindingResult result, HttpServletRequest req, Model uiModel){
+		
+//    UserAccount userDB = security.getUserAccount();	
+		
+		UserAccount userDB = userService.findUserAccount(userAccount.getId()); 
+         
+		String test= userAccount.getEmail();
+		if(test!=null && !test.isEmpty()){
+		 List<UserAccount> users = userService.findByEmail(test);
+//		 System.out.println("Taille trouvee : "+users.size());
+//			userDB = userService.findByEmail(test);
+			if(users.size()>0){
+				uiModel.addAttribute("info", "This Adress allready exist in this web site, Please change it !!!");
+				uiModel.addAttribute("userAccount", userAccount);	
+			}else
+				if (ValideEmailUtil.isValid(test)) {					
+					userDB.setEmail(test);
+					userService.updateUserAccount(userDB);
+					uiModel.addAttribute("userAccount", userAccount);
+					uiModel.addAttribute("info", "The account was sucessfully updated");
+				}
+				else
+			uiModel.addAttribute("info", "The adress you enter is not valid !!");
+		
+		
+		return "updateAccount";
+		}
+		else
+			uiModel.addAttribute("info", "Please enter your adress !!");
+		
+		return "updateAccount";
+	}
+		 //fin de la methode
+	
 
 }

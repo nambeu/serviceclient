@@ -16,5 +16,6 @@ public interface UserService {
 	public String generatePassword();
 	public boolean sendPassword(String email,String password);
 	public List<UserAccount> findByUserName(String userName);
+	public List<UserAccount> findByEmail(String email);
 
 }

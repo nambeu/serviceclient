@@ -65,6 +65,7 @@
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
+				<spring:url value="/useraccounts/updateAccount" var="update"></spring:url>
 				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
 				<spring:url value="/resetPassOnline/callChangePassOnline" var="changePass"></spring:url>
 
@@ -95,6 +96,12 @@
 								<sec:authorize access="hasRole('ADMIN') ">
 									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
 										</i> List Accounts</a></li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasAnyRole('ADMIN','USER')">
+									<li><a href="${update}">
+									<i class="icon-pencil"> <!--c--></i>
+									 Update my account</a></li>
 								</sec:authorize>								
 								
 								<sec:authorize access="hasAnyRole('ADMIN','USER')">

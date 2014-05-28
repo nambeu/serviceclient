@@ -10,5 +10,6 @@ import com.dart.serviceclient.domain.UserAccount;
 public interface UserRepository {
 
 	public List<UserAccount> findByUserName(String userName);
+	public List<UserAccount> findByEmail(String email);
 
 }

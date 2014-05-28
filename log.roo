@@ -1,3 +1,4 @@
+
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-24 12:57:08
 entity jpa --class ~.domain.QuestionToEntreprise --activeRecord false
 field string --fieldName title --notNull 
@@ -8,3 +9,14 @@ field date --type java.util.Date --fieldName dateOfPost --dateTimeFormatPattern 
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-24 16:17:31
 repository jpa --interface ~.repository.QuestionRepository --entity ~.domain.QuestionToEntreprise
 service type --interface ~.service.QuestionService --entity ~.domain.QuestionToEntreprise
+
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 01:55:47
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-19 01:57:05
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 01:57:41
+interface --class ~.email.MailService
+class --class ~.email.MailServiceImpl
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 02:15:40
+interface --class ~mail.MailService
+class --class ~.mail.MailServiceImpl
+
