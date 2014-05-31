@@ -1,6 +1,5 @@
 package com.dart.serviceclient.web;
 
-
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +23,9 @@ import com.dart.serviceclient.service.UserService;
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
 public class UserAccountController {
-	
+	@Autowired
+	UserService userService;
+
 	@RequestMapping(value = "/sign")
 	public String selectPage(HttpServletRequest request, Model uiModel) {
 		uiModel.addAttribute("userAccount", new UserAccount());
@@ -58,22 +59,23 @@ public class UserAccountController {
 
 		List<UserAccount> listUser = userService.findAllUserAccounts();
 		for (UserAccount userList : listUser) {
-			
+
 			if (userAccount.getUserName().equals(userList.getUserName())) {
 				bindingResult
 						.rejectValue("userName", "userNexist",
 								"this user name also exist in this web site, Please change it !!!");
 				break;
-		}
+			}
 		}
 		boolean testMail = userService.isAnEmail(userAccount.getEmail());
-		if(testMail)
-			bindingResult.rejectValue("email", "emailExixt", "this mail address also exist in this web site, Please change it !!!");
-			
+		if (testMail)
+			bindingResult
+					.rejectValue("email", "emailExixt",
+							"this mail address also exist in this web site, Please change it !!!");
 
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("userAccount", userAccount);
-			addDateTimeFormatPatterns(uiModel);
+//			addDateTimeFormatPatterns(uiModel);
 			System.out.println("verif errors");
 			return "signUp";
 		}
@@ -93,6 +95,21 @@ public class UserAccountController {
 		uiModel.addAttribute("listUsers", listUsersAccounts);
 		// userService.findAllUserAccounts();
 		return "users/list";
+	}
+
+	@RequestMapping(value = "/testAngular1")
+	public String listUsersAngular1(HttpServletRequest request,
+			Model uiModel) {
+		return "angularRequest";
+	}
+	
+	@RequestMapping(value = "/testAngular2")
+	public @ResponseBody List<UserAccount> listUsersAngular2(HttpServletRequest request,
+			Model uiModel) {
+		List<UserAccount> listUsersAccounts = userService.findAllUserAccounts();
+		// uiModel.addAttribute("listUsers", listUsersAccounts);
+		// userService.findAllUserAccounts();
+		return listUsersAccounts;
 	}
 
 	@RequestMapping(value = "/enable")
@@ -170,15 +187,14 @@ public class UserAccountController {
 		UserAccount userAccount = userService.findUserAccount(new Long(t[1]));
 		List<UserAccount> listUseraccounts = userService.findAllUserAccounts();
 		Set<UserRole> roles = userAccount.getRoles();
-		
+
 		for (UserRole userRole : roles) {
-			if(userRole.equals("ADMIN"))
-					System.out.println("you can not delet an admin");
-				else
-					userService.deleteUserAccount(userAccount);
+			if (userRole.equals("ADMIN"))
+				System.out.println("you can not delet an admin");
+			else
+				userService.deleteUserAccount(userAccount);
 
 		}
-		
 
 		return "true";
 	}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+
+	<div ng-app='myApp'>
+
+		<div ng-controller='ListUserController'>
+
+			<button ng-click="doRequest()">:: list user with angular
+				request ::</button>
+			<BR /> <BR /> {{item.id}}
+			<p ng-bind="need"></p>
+
+		</div>
+	</div>
+
+	<script>
+		// 	alert("ffff");
+		function ListUserController($scope) {
+			$scope.need = 0;
+ $scope.item = [{
+"id": 2,
+"title": "Pebbles"}]
+			// 			$scope.doRequest = function() {
+			// 			$scope.need=3;
+			// 			};
+		}
+		// 	alert("dassi");
+	</script>
+
+</div>
+

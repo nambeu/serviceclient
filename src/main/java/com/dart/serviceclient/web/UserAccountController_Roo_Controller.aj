@@ -5,13 +5,11 @@ package com.dart.serviceclient.web;
 
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
-import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.web.UserAccountController;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +20,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect UserAccountController_Roo_Controller {
-    
-    @Autowired
-    UserService UserAccountController.userService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String UserAccountController.create(@Valid UserAccount userAccount, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
