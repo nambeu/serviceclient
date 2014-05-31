@@ -41,6 +41,8 @@ public class ApplicationInitFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest arg0,
 			HttpServletResponse arg1, FilterChain arg2)
 			throws ServletException, IOException {
+		Long l= userService.countAllUserAccounts();
+		if (l == 0){
 		if(!inited){
 			UserAccount userAccount = new UserAccount();
 			userAccount.setUserName("admin");
@@ -53,6 +55,7 @@ public class ApplicationInitFilter extends OncePerRequestFilter {
 			userService.saveUserAccount(userAccount);
 			inited = true;
 			LOGGER.debug("Inited : "+userService.findByUserName(userAccount.getUserName()));
+		}
 		}
 		LOGGER.debug("Inited !");
 		arg2.doFilter(arg0, arg1);

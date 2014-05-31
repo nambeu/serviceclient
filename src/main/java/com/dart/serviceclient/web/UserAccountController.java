@@ -1,9 +1,8 @@
 package com.dart.serviceclient.web;
-
+import java.util.Arrays;
 
 import java.util.List;
 import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -15,10 +14,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import com.dart.serviceclient.domain.EntrepriseAccount;
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
 import com.dart.serviceclient.security.Security;
+
 import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.tools.ValideEmailUtil;
 
@@ -26,6 +26,7 @@ import com.dart.serviceclient.tools.ValideEmailUtil;
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
 public class UserAccountController {
+	
 	@Autowired
 	Security security;
 	
@@ -74,10 +75,10 @@ public class UserAccountController {
 			if(ValideEmailUtil.isValid(emailN)){				
 				List<UserAccount> users = userService.findByEmail(emailN);
 				if(users.size()>0){
-					bindingResult.rejectValue("email", "emailExixt", "This address also exist in this web site, Please change it !!!");				
+					bindingResult.rejectValue("email", "emailExist", "This address also exist in this web site, Please change it !!!");				
 				}
 			}else {
-				bindingResult.rejectValue("email", "emailExixt", "The adress you enter is not valid !!");
+				bindingResult.rejectValue("email", "emailExist", "The adress you enter is not valid !!");
 			}
 			}
 
@@ -238,3 +239,4 @@ public class UserAccountController {
 	
 
 }
+

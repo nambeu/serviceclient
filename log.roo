@@ -12,6 +12,87 @@ service type --interface ~.service.QuestionService --entity ~.domain.QuestionToE
 
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 01:55:47
 exit
+
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-04-17 13:59:35
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-04-21 13:33:08
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-04-22 16:23:41
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-04-22 16:24:29
+
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 16:08:18
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 17:06:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 19:24:25
+class --class ~.domain.ResetPassword --rooAnnotations true
+field string --fieldName userN --notNull --sizeMin 5
+field string --fieldName passW --notNull --sizeMin 6
+field string --fieldName NewpassOne --notNull --sizeMin 6
+field string --fieldName NewpassTwo --notNull --sizeMin 6
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-02 20:20:37
+controller scaffold --class ~.domain.ResetPasswordController --entity ~.domain.ResetPassword
+class --class ~.domain.ResetPasswordBean --rooAnnotations true
+field string --fieldName userName --notNull --sizeMin 5
+field string --fieldName password --notNull --sizeMin 6
+field string --fieldName passwordOne --notNull --sizeMin 6
+field string --fieldName passwordTwo --notNull --sizeMin 6
+controller scaffold --class ~.domain.ResetPasswordBeanController --entity ~.domain.ResetPasswordBean
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-04 13:19:18
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-05 17:44:05
+security setup
+// [failed] enum type --class ~.domain.RoleName
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-05 18:19:42
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-05 18:19:48
+// [failed] enum type --class ~.domain.Role
+enum type --class ~.domain.UserRole
+enum constant --name ADMIN,USER,VISITOR
+focus --class ~.domain.UserAccount
+field set --fieldName roles --type ~.domain.UserRole
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-05 18:41:23
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-10 05:35:12
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-10 17:08:44
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-12 09:27:48
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-12 10:45:15
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-13 05:55:43
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-13 19:52:58
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-14 11:37:48
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-15 12:36:48
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-21 10:15:47
+entity jpa --class ~.domain.EntrepriseAccount
+field string --fieldName raisonSocial --unique 
+field string --fieldName registreDeCormmerce --notNull 
+field string --fieldName logo
+repository jpa --interface ~.repository.EntrepriseRepository --entity ~.domain.EntrepriseAccount
+service type --interface ~.service.EntrepriseService --entity ~.domain.EntrepriseAccount
+controller all --package ~.web
+entity jpa --class ~.domain.SecteurActivite --activeRecord false
+field string --fieldName libelle --unique --notNull 
+repository jpa --interface ~.repository.SecteurActivite --entity ~.domain.SecteurActivite
+service type --interface ~.service.SecteurActivite --entity ~.domain.SecteurActivite
+controller all --package ~.web
+entity jpa --class ~.domain.SecteurActivite --activeRecord false
+field string --fieldName libelle --unique --notNull 
+field string --fieldName description
+repository jpa --interface ~.repository.SecteurActiviteRepository --entity ~.domain.EntrepriseAccount
+service type --interface ~.service.SecteurActiviteService --entity ~.domain.SecteurActivite
+controller all --package ~.web
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-21 17:07:24
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-22 13:45:44
+entity jpa --class ~.domain.SecteurActivite --activeRecord false 
+field string --fieldName libelle --unique --notNull 
+field string --fieldName description
+repository jpa --interface ~.repository.SecteurActiviteRepository --entity ~.domain.SecteurActivite
+service type --interface ~.service.SecteurActiviteService --entity ~.domain.SecteurActivite
+controller all --package com.dart.serviceclient.web
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-22 13:55:30
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-22 13:59:40
+service type --interface ~.service.EntrepriseService --entity ~.domain.EntrepriseAccount
+exit
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-22 14:55:53
+
+
+
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-05-19 01:57:05
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-19 01:57:41
 interface --class ~.email.MailService
@@ -20,3 +101,9 @@ class --class ~.email.MailServiceImpl
 interface --class ~mail.MailService
 class --class ~.mail.MailServiceImpl
 
+<<<<<<< HEAD
+=======
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 17:03:39
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 21:12:45
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 10:16:24
+>>>>>>> 7034d55979adb326a43ddc84174178f96c38ffa8

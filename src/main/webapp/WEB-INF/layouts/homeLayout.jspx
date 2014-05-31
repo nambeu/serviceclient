@@ -65,9 +65,16 @@
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
+
+				<spring:url value="/useraccounts/updateAccount" var="updateAccount"></spring:url>
+				
+				<!--  mettre le lien pour creer un compte entreprise -->
+					<spring:url value="/entrepriseaccounts/creerEntreprise" var="createEntrepriseAccount"></spring:url> 
+
 				<spring:url value="/useraccounts/updateAccount" var="update"></spring:url>
 				<spring:url value="/resetPassController/resetpasswd1" var="change"></spring:url>
 				<spring:url value="/resetPassOnline/callChangePassOnline" var="changePass"></spring:url>
+
 
 				<!--  si l'utilisateur de l'application est un visiteur, on l'affiche le lien login -->
 				<sec:authorize ifNotGranted="ADMIN,USER">
@@ -109,8 +116,18 @@
 									<i class="icon-key"> <!--c--></i>
 									 Change my password</a></li>
 								</sec:authorize>
-
+								
 								<!-- pour afficher le log in pour les visiteurs -->
+								
+								<sec:authorize access="hasRole('USER')">
+									<li><a href="${updateAccount}"><i class="icon-pencil"> <!--c-->
+										</i> Update my account</a></li>
+								</sec:authorize>
+								
+								<sec:authorize access="hasRole('USER')">
+									<li><a href="${createEntrepriseAccount}"><i class="icon-pencil"> <!--c-->
+										</i> create your entreprise account</a></li>
+								</sec:authorize>
 
 								<sec:authorize access="hasAnyRole('ADMIN','USER')">
 									<spring:url value="/resources/j_spring_security_logout"
@@ -118,6 +135,8 @@
 									<li><a href="${logout}"><i class="icon-off"> <!--c-->
 										</i> Log out</a></li>
 								</sec:authorize>
+								
+								
 
 							</ul>
 						</div></li>

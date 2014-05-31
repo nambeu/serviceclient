@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_dart_serviceclient_domain_SecteurActivite" modelAttribute="secteurActivite" path="/secteuractivites" versionField="Version" z="vx/qk2q/XoAyX3KSHb/Y5M53+F0=">
+        <field:input field="libelle" id="c_com_dart_serviceclient_domain_SecteurActivite_libelle" required="true" z="4tga9L3wS0oHasyGfC+EnEpenQA="/>
+        <field:input field="description" id="c_com_dart_serviceclient_domain_SecteurActivite_description" z="PSFDLEf3PZux2tI8/CsKVP9dwVM="/>
+    </form:update>
+</div>
