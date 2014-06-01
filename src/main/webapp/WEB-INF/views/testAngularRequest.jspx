@@ -8,7 +8,6 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 
-	<div ng-app='myApp'>
 
 		<div ng-controller='ListUserController'>
 
@@ -18,7 +17,6 @@
 			<p ng-bind="need"></p>
 
 		</div>
-	</div>
 
 	<script>
 		// 	alert("ffff");
