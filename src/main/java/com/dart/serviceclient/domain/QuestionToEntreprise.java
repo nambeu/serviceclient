@@ -36,6 +36,9 @@ public class QuestionToEntreprise {
 
     /**
      */
+    private boolean show;
+    /**
+     */
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     private Date dateOfPost;

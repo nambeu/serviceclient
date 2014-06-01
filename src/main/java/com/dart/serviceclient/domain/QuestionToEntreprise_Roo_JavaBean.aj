@@ -42,6 +42,14 @@ privileged aspect QuestionToEntreprise_Roo_JavaBean {
         this.receiveEntreprise = receiveEntreprise;
     }
     
+    public boolean QuestionToEntreprise.isShow() {
+        return this.show;
+    }
+    
+    public void QuestionToEntreprise.setShow(boolean show) {
+        this.show = show;
+    }
+    
     public Date QuestionToEntreprise.getDateOfPost() {
         return this.dateOfPost;
     }

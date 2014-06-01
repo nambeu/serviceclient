@@ -7,6 +7,7 @@
         <field:input field="content" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_content" required="true" z="QfsfSRA1rLgFlJhl4Iiou312vCY="/>
         <field:select field="postUser" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" itemValue="id" items="${useraccounts}" path="/useraccounts" z="FEKizJCNSa94KuvS/63MkUKGXj4="/>
         <field:datetime dateTimePattern="${questionToEntreprise_dateofpost_date_format}" field="dateOfPost" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" z="+wbpsBs8SW+/+210+RMV0I1MS0E="/>
-        <field:select field="receiveEntreprise" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" itemValue="id" items="${entrepriseaccounts}" path="/entrepriseaccounts" z="ZK7qJDD1GYeKqDWQCby5FRtgUu4="/>
+        <field:input field="receiveEntreprise" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" z="ObLzkb2jkzrvuB2rflMkjxxpBGU="/>
+        <field:checkbox field="show" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_show" z="OaKyZPOd1KuhHMh1d6i9+rTnEk4="/>
     </form:update>
 </div>

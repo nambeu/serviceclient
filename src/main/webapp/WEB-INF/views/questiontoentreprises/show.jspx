@@ -8,5 +8,6 @@
         <field:display field="postUser" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" object="${questiontoentreprise}" z="nSLhlyBtGtrTT4d9lRDaqpGq5FQ="/>
         <field:display date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" field="dateOfPost" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" object="${questiontoentreprise}" z="sfZT9j+PpbX3ajl1eyC2D/Tihnw="/>
         <field:display field="receiveEntreprise" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" object="${questiontoentreprise}" z="7F2Nlorot2OD2p5kXbFOXGnObeE="/>
+        <field:display field="show" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_show" object="${questiontoentreprise}" z="nGsdY00IYdnOf+7erlbfUC+i56o="/>
     </page:show>
 </div>

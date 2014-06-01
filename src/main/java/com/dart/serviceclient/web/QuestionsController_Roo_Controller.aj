@@ -4,7 +4,6 @@
 package com.dart.serviceclient.web;
 
 import com.dart.serviceclient.domain.QuestionToEntreprise;
-import com.dart.serviceclient.service.EntrepriseService;
 import com.dart.serviceclient.service.QuestionService;
 import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.web.QuestionsController;
@@ -25,9 +24,6 @@ privileged aspect QuestionsController_Roo_Controller {
     
     @Autowired
     QuestionService QuestionsController.questionService;
-    
-    @Autowired
-    EntrepriseService QuestionsController.entrepriseService;
     
     @Autowired
     UserService QuestionsController.userService;
@@ -106,7 +102,6 @@ privileged aspect QuestionsController_Roo_Controller {
     void QuestionsController.populateEditForm(Model uiModel, QuestionToEntreprise questionToEntreprise) {
         uiModel.addAttribute("questionToEntreprise", questionToEntreprise);
         addDateTimeFormatPatterns(uiModel);
-        uiModel.addAttribute("entrepriseaccounts", entrepriseService.findAllEntrepriseAccounts());
         uiModel.addAttribute("useraccounts", userService.findAllUserAccounts());
     }
     
