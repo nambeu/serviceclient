@@ -6,7 +6,6 @@ package com.dart.serviceclient.security;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

@@ -32,7 +32,7 @@ public class QuestionToEntreprise {
     /**
      */
     @ManyToOne
-    private UserAccount receiveUser;
+    private EntrepriseAccount receiveEntreprise;
 
     /**
      */

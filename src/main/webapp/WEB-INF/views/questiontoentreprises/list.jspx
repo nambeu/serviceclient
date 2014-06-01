@@ -7,8 +7,8 @@
             <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_title" property="title" z="NxoHLYlLfP6X5ILGX/93AY5b2k0="/>
             <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_content" property="content" z="7OwdRks6HI/QkIY85JKsSOmr/GM="/>
             <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" property="postUser" z="mgv5O55mr0bwcqtL+25329GiQEc="/>
-            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveUser" property="receiveUser" z="j4Fqz9ljUY+A1FrBppz7aszT+NY="/>
             <table:column date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" property="dateOfPost" z="j6mxDc/jpbnKyGb7utSXiLljdHA="/>
+            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" property="receiveEntreprise" z="IYI+h6QdnYVgdEhWDhEk7kWafso="/>
         </table:table>
     </page:list>
 </div>

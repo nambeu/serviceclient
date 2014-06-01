@@ -3,6 +3,7 @@
 
 package com.dart.serviceclient.domain;
 
+import com.dart.serviceclient.domain.EntrepriseAccount;
 import com.dart.serviceclient.domain.QuestionToEntreprise;
 import com.dart.serviceclient.domain.UserAccount;
 import java.util.Date;
@@ -33,12 +34,12 @@ privileged aspect QuestionToEntreprise_Roo_JavaBean {
         this.postUser = postUser;
     }
     
-    public UserAccount QuestionToEntreprise.getReceiveUser() {
-        return this.receiveUser;
+    public EntrepriseAccount QuestionToEntreprise.getReceiveEntreprise() {
+        return this.receiveEntreprise;
     }
     
-    public void QuestionToEntreprise.setReceiveUser(UserAccount receiveUser) {
-        this.receiveUser = receiveUser;
+    public void QuestionToEntreprise.setReceiveEntreprise(EntrepriseAccount receiveEntreprise) {
+        this.receiveEntreprise = receiveEntreprise;
     }
     
     public Date QuestionToEntreprise.getDateOfPost() {

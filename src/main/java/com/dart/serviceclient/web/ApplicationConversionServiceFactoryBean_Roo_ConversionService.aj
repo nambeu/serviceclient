@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 
+import com.dart.serviceclient.domain.EntrepriseAccount;
+import com.dart.serviceclient.domain.SecteurActivite;
 import com.dart.serviceclient.domain.UserAccount;
+import com.dart.serviceclient.service.SecteurActiviteService;
 import com.dart.serviceclient.service.UserService;
 
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {

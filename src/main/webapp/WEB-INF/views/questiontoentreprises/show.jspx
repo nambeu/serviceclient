@@ -6,7 +6,7 @@
         <field:display field="title" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_title" object="${questiontoentreprise}" z="X3uSnWagU06euZ0jGa9kgB+sM44="/>
         <field:display field="content" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_content" object="${questiontoentreprise}" z="ULHyATIqvy8sCJelbPaWGcR8Yxk="/>
         <field:display field="postUser" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" object="${questiontoentreprise}" z="nSLhlyBtGtrTT4d9lRDaqpGq5FQ="/>
-        <field:display field="receiveUser" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_receiveUser" object="${questiontoentreprise}" z="KavQK7SAzJjP+bbhGqXNGvua5+M="/>
         <field:display date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" field="dateOfPost" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" object="${questiontoentreprise}" z="sfZT9j+PpbX3ajl1eyC2D/Tihnw="/>
+        <field:display field="receiveEntreprise" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" object="${questiontoentreprise}" z="7F2Nlorot2OD2p5kXbFOXGnObeE="/>
     </page:show>
 </div>
