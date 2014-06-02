@@ -70,6 +70,10 @@
     </definition>
     
     <definition extends="homeLayout" name="listQuestionsUser">
-        <put-attribute name="body" value="/WEB-INF/views/listQuestionsToEntreprise.jspx"/>
+        <put-attribute name="body" value="/WEB-INF/views/listquestionsToEntreprise.jspx"/>
+    </definition>
+    
+      <definition extends="homeLayout" name="listEntreprise">
+        <put-attribute name="body" value="/WEB-INF/views/listEntreprise.jspx"/>
     </definition>
 </tiles-definitions>

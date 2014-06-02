@@ -36,7 +36,7 @@ public class QuestionToEntreprise {
 
     /**
      */
-    private boolean show;
+//    private boolean show;
     /**
      */
     @Temporal(TemporalType.TIMESTAMP)

@@ -9,7 +9,6 @@
             <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" property="postUser" z="mgv5O55mr0bwcqtL+25329GiQEc="/>
             <table:column date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" property="dateOfPost" z="j6mxDc/jpbnKyGb7utSXiLljdHA="/>
             <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" property="receiveEntreprise" z="IYI+h6QdnYVgdEhWDhEk7kWafso="/>
-            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_show" property="show" z="K8RKBIxRtu9yneocaisPLRa7K9M="/>
         </table:table>
     </page:list>
 </div>

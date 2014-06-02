@@ -4,7 +4,6 @@
 package com.dart.serviceclient.web;
 
 import com.dart.serviceclient.domain.QuestionToEntreprise;
-import com.dart.serviceclient.service.QuestionService;
 import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.web.QuestionsController;
 import java.io.UnsupportedEncodingException;
@@ -21,9 +20,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect QuestionsController_Roo_Controller {
-    
-    @Autowired
-    QuestionService QuestionsController.questionService;
     
     @Autowired
     UserService QuestionsController.userService;
