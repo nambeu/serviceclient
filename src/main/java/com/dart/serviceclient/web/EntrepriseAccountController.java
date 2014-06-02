@@ -1,5 +1,6 @@
 package com.dart.serviceclient.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dart.serviceclient.domain.EntrepriseAccount;
+import com.dart.serviceclient.domain.SearchEntreprise;
 import com.dart.serviceclient.domain.SecteurActivite;
 import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.security.Security;
-import com.dart.serviceclient.service.EntrepriseService;
-import com.dart.serviceclient.service.SecteurActiviteService;
 
 @RequestMapping("/entrepriseaccounts")
 @Controller
@@ -27,7 +27,6 @@ public class EntrepriseAccountController {
 
 	@Autowired
 	Security security;
-	
 
 	@RequestMapping(value = "/creerEntreprise")
 	public String createEntreprise(HttpServletRequest request, Model uiModel) {
@@ -91,7 +90,42 @@ public class EntrepriseAccountController {
 
 		List<EntrepriseAccount> listEntrep = entrepriseService
 				.findAllEntrepriseAccounts();
+
+		List<SecteurActivite> listSectors = secteurActiviteService
+				.findAllSecteurActivites();
+
+		uiModel.addAttribute("secteurActivites", listSectors);
+		uiModel.addAttribute("searchEntreprise", new SearchEntreprise());
+
 		uiModel.addAttribute("listEntrep", listEntrep);
+		return "listEntreprise";
+	}
+
+	@RequestMapping(value = "/searchEntreprise")
+	public String searchEntreprise(@Valid SearchEntreprise searchEntreprise,
+			Model uiModel, HttpServletRequest HttpServletRequest) {
+
+		List<EntrepriseAccount> list = entrepriseService
+				.findBySecteurActivite_libelle(searchEntreprise
+						.getSecteurActivite().getLibelle());
+
+		List<EntrepriseAccount> listToShow = new ArrayList<EntrepriseAccount>();
+		String[] strToSearch = searchEntreprise.getSearchValue().split(" ");
+
+		for (EntrepriseAccount entrepriseAccount : list) {
+
+			for (int i = 0; i < strToSearch.length; i++) {
+				if (entrepriseAccount.getRaisonSocial().indexOf(strToSearch[i]) != -1) {
+
+					if (!listToShow.contains(entrepriseAccount)) {
+						listToShow.add(entrepriseAccount);
+					}
+				}
+			}
+		}
+
+		uiModel.addAttribute("listSearch", listToShow);
+
 		return "listEntreprise";
 	}
 }

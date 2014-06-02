@@ -98,6 +98,7 @@ privileged aspect QuestionsController_Roo_Controller {
     void QuestionsController.populateEditForm(Model uiModel, QuestionToEntreprise questionToEntreprise) {
         uiModel.addAttribute("questionToEntreprise", questionToEntreprise);
         addDateTimeFormatPatterns(uiModel);
+        uiModel.addAttribute("entrepriseaccounts", entrepriseService.findAllEntrepriseAccounts());
         uiModel.addAttribute("useraccounts", userService.findAllUserAccounts());
     }
     

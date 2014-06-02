@@ -14,7 +14,6 @@
 
 	<c:forEach items="${listReceive}" var="kk">
 
-
 		<div class="accordion" id="accordion2">
 			<div class="accordion-group">
 

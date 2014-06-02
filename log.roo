@@ -108,3 +108,8 @@ class --class ~.mail.MailServiceImpl
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 10:16:24
 >>>>>>> 7034d55979adb326a43ddc84174178f96c38ffa8
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-01 12:45:49
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-02 19:52:37
+class --class ~.domain.SearchEntreprise --rooAnnotations true
+field string --fieldName searchValue ----notNull 
+field reference --type ~.domain.SecteurActivite secteurActivite --notNull 
+controller scaffold --class ~.domain.SearchEntrepriseController --entity ~.domain.SearchEntreprise

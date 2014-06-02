@@ -86,6 +86,8 @@
 								<!--c-->
 						</i> Log in</a></li>
 				</sec:authorize>
+					<li class="active"><a href="${showEntreprise}"><i class="icon-list-alt"> <!--c-->
+										</i> List Entreprise</a></li>
 				<sec:authorize ifNotGranted="ADMIN,USER">
 					<li class="active"><a href="${change}"><i class="icon-key">
 								<!--c-->
@@ -122,11 +124,6 @@
 									</a></li>
 								</sec:authorize>
 								
-								<sec:authorize access="hasRole('USER') ">
-									<li><a href="${showEntreprise}"><i class="icon-list-alt"> <!--c-->
-										</i> List Entreprise</a></li>
-								</sec:authorize>
-
 								<!-- pour afficher le log in pour les visiteurs -->
 
 								<sec:authorize access="hasRole('USER')">
