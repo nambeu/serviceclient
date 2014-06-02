@@ -12,7 +12,7 @@
 		<spring:url value="/questiontoentreprises/createQuestion" var="showFormQuestion" />
 		<a href="${showFormQuestion}"> post a question to a user</a>
 		<br/>
-		<spring:url value="/useraccounts/testAngular1" var="showuserAngular" />
+		<spring:url value="/useraccounts/testAngular4" var="showuserAngular" />
 		<a href="${showuserAngular}">:: view to use to test Angular request ::</a>
 
 		<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas

@@ -19,17 +19,15 @@
 		</div>
 
 	<script>
-		// 	alert("ffff");
 		function ListUserController($scope) {
 			$scope.need = 0;
- $scope.item = [{
-"id": 2,
-"title": "Pebbles"}]
-			// 			$scope.doRequest = function() {
-			// 			$scope.need=3;
-			// 			};
+//  $scope.item = [{
+// "id": 2,
+// "title": "Pebbles"}];
+			 			$scope.doRequest = function() {
+						$scope.need=3;
+						};
 		}
-		// 	alert("dassi");
 	</script>
 
 </div>

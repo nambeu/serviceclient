@@ -97,7 +97,7 @@ public class UserAccountController {
 		return "users/list";
 	}
 
-	@RequestMapping(value = "/testAngular1")
+	@RequestMapping(value = "/testAngular4")
 	public String listUsersAngular1(HttpServletRequest request,
 			Model uiModel) {
 		return "angularRequest";
