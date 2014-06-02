@@ -7,10 +7,10 @@
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
 
-	click here to see all the questions post by users to users .... <BR />
+	
 
 	<spring:url value="/questiontoentreprises/listQuestion" var="userquest"></spring:url>
-	<a href="${userquest}?receive=admin">questions to admin </a> <BR /> <BR />
+	<a href="${userquest}">List All Your Questions </a> <BR /> <BR />
 
 	<c:forEach items="${listReceive}" var="kk">
 
@@ -25,7 +25,7 @@
 							<div class="panel-heading">
 								<a class="accordion-toggle" style="color: white;"
 									data-toggle="collapse" data-parent="#accordion2"
-									href="#collapseOne"> ${kk.title} </a> <span
+									href="#collapseOne"> ${kk.title} To Entreprise : ${kk.receiveEntreprise.raisonSocial}</a> <span
 									class="pull-right clickable"></span>
 							</div>
 

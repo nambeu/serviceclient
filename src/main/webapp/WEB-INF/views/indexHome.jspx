@@ -9,9 +9,6 @@
 		<spring:url value="/passwordrecovering/showemailpage" var="showEmailPageUrl" />
 		<a href="${showEmailPageUrl}">forgot password</a>
 		<br/>		
-		<spring:url value="/questiontoentreprises/createQuestion" var="showFormQuestion" />
-		<a href="${showFormQuestion}"> post a question to a user</a>
-		<br/>
 		<spring:url value="/entrepriseaccounts/listEntreprise" var="showEntreprise" />
 		<a href="${showEntreprise}"> list all entreprises</a>
 		<br/>

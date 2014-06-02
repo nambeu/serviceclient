@@ -9,9 +9,9 @@
 
 	<spring:url value="/questiontoentreprises/postQuestion"
 		var="postQuestionUser"></spring:url>
-
+${identrep}
 	<form:form commandName="questionToEntreprise"
-		action="${postQuestionUser}" method="post">
+		action="${postQuestionUser}?entreprise=${identrep}" method="post">
 
 		<form:label path="title">title</form:label>
 		<form:input path="title" cssClass="form-control"

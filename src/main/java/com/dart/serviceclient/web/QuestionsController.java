@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dart.serviceclient.domain.EntrepriseAccount;
 import com.dart.serviceclient.domain.QuestionToEntreprise;
 import com.dart.serviceclient.security.Security;
+import com.dart.serviceclient.service.EntrepriseService;
 import com.dart.serviceclient.service.QuestionService;
 
 @RequestMapping("/questiontoentreprises")
@@ -27,42 +29,49 @@ public class QuestionsController {
 
 	@Autowired
 	QuestionService questionService;
+	
+	@Autowired
+	EntrepriseService entrepriseService;
 
 	@RequestMapping(value = "/createQuestion")
-	public String showFormCreate(Model uiModel) {
+	public String showFormCreate(Model uiModel, @RequestParam(value="entreprise") int idEntrep) {
 
 		QuestionToEntreprise questionToEntreprise = new QuestionToEntreprise();
 		uiModel.addAttribute("questionToEntreprise", questionToEntreprise);
+		uiModel.addAttribute("identrep", idEntrep);
 		return "questionsUsers";
 	}
 
 	@RequestMapping(value = "/postQuestion", method = RequestMethod.POST)
 	public String postQuestion(Model uiModel,
 			@Valid QuestionToEntreprise questionToEntreprise,
-			BindingResult bindingResult) {
+			BindingResult bindingResult,
+			@RequestParam(value="entreprise") long idEntrep) {
 
 		if (bindingResult.hasErrors()) {
 			return "questionsUsers";
 		}
 
 		questionToEntreprise.setPostUser(security.getUserAccount());
-//		questionToEntreprise.setReceiveEntreprise(security.getUserAccount());
+		EntrepriseAccount list = entrepriseService.findEntrepriseAccount((long) idEntrep);
+		
+		questionToEntreprise.setReceiveEntreprise(list);
 		questionService.saveQuestionToEntreprise(questionToEntreprise);
 
 		return "listQuestionsUser";
 	}
 
 	@RequestMapping(value = "/listQuestion", method = RequestMethod.GET)
-	public String showQuestion(Model uiModel,
-			@RequestParam(value = "receive") String receiver) {
-//
-//		List<QuestionToEntreprise> listToShow = questionService
-//				.findByTitle(receiver);
-		
-//		List<QuestionToEntreprise> listToShow = questionService.findByReceiveEntreprise_raisonSocial(receiver);
+	public String showQuestion(Model uiModel) {
+		//
+		 List<QuestionToEntreprise> listToShow = questionService
+		 .findByPostUser_userName(security.getUserAccount().getUserName());
 
-//		uiModel.addAttribute("listReceive", listToShow);
-		
+		// List<QuestionToEntreprise> listToShow =
+		// questionService.findByReceiveEntreprise_raisonSocial(receiver);
+
+		 uiModel.addAttribute("listReceive", listToShow);
+
 		return "listQuestionsUser";
 	}
 }

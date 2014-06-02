@@ -27,10 +27,7 @@ public class EntrepriseAccountController {
 
 	@Autowired
 	Security security;
-	@Autowired
-	SecteurActiviteService secteurActiviteService;
-	@Autowired
-	EntrepriseService entrepriseService;
+	
 
 	@RequestMapping(value = "/creerEntreprise")
 	public String createEntreprise(HttpServletRequest request, Model uiModel) {
