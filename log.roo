@@ -113,3 +113,4 @@ class --class ~.domain.SearchEntreprise --rooAnnotations true
 field string --fieldName searchValue ----notNull 
 field reference --type ~.domain.SecteurActivite secteurActivite --notNull 
 controller scaffold --class ~.domain.SearchEntrepriseController --entity ~.domain.SearchEntreprise
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-03 09:11:58
