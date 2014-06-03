@@ -65,7 +65,8 @@
 				<spring:url value="/useraccounts/contact" var="cont"></spring:url>
 				<li class="active"><a href="${cont}">Contact</a></li>
 				<spring:url value="/useraccounts/users" var="list"></spring:url>
-				<spring:url value="/entrepriseaccounts/listEntreprise" var="showEntreprise" />
+				<spring:url value="/entrepriseaccounts/listEntreprise"
+					var="showEntreprise" />
 
 				<spring:url value="/useraccounts/updateAccount" var="updateAccount"></spring:url>
 
@@ -86,8 +87,9 @@
 								<!--c-->
 						</i> Log in</a></li>
 				</sec:authorize>
-					<li class="active"><a href="${showEntreprise}"><i class="icon-list-alt"> <!--c-->
-										</i> List Entreprise</a></li>
+				<li class="active"><a href="${showEntreprise}"><i
+						class="icon-list-alt"> <!--c-->
+					</i> List Entreprise</a></li>
 				<sec:authorize ifNotGranted="ADMIN,USER">
 					<li class="active"><a href="${change}"><i class="icon-key">
 								<!--c-->
@@ -106,6 +108,11 @@
 							</button>
 							<ul class="dropdown-menu">
 								<!-- pour afficher les liens en fonction des droits sur le site		 -->
+								<sec:authorize access="hasAnyRole('ADMIN','USER') ">
+									<li><a href="#"><i class="icon-user"> <!--c--></i>Hi,
+										<sec:authentication property="principal.username" />.</a></li>
+								</sec:authorize>
+
 								<sec:authorize access="hasRole('ADMIN') ">
 									<li><a href="${list}"><i class="icon-list-alt"> <!--c-->
 										</i> List Accounts</a></li>
@@ -123,7 +130,7 @@
 										</i> Change my password
 									</a></li>
 								</sec:authorize>
-								
+
 								<!-- pour afficher le log in pour les visiteurs -->
 
 								<sec:authorize access="hasRole('USER')">
@@ -153,6 +160,11 @@
 
 			</ul>
 			<h3 class="text-muted">Project name</h3>
+			<div style="float: right;">
+			<sec:authorize access="hasAnyRole('ADMIN','USER')">
+			Hi, <sec:authentication property="principal.username" />. 
+		</sec:authorize>
+		</div>
 		</div>
 
 		<!-- content -->
