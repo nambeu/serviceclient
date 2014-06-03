@@ -3,7 +3,7 @@
 	xmlns:tiles="http://tiles.apache.org/tags-tiles"
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:sec="http://www.springframework.org/security/tags"
-	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" ng-app='myApp'>
 
 
 <jsp:output doctype-root-element="HTML"
@@ -57,7 +57,7 @@
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 
-<body class="">
+<body class="" ng-controller='ListUserController'>
 
 	<div class="container">
 		<div class="header">
@@ -163,4 +163,13 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 
 </body>
+<script type="text/javascript">
+		function ListUserController($scope) {
+			$scope.need = 0;
+			$scope.it=true;
+// 			$scope.doRequest = function() {
+// 				$scope.need = 3;
+// 			};
+		}
+</script>
 </html>

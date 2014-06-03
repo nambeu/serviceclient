@@ -8,27 +8,18 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 
-
-		<div ng-controller='ListUserController'>
+	<div >
+		<div >
 
 			<button ng-click="doRequest()">:: list user with angular
 				request ::</button>
-			<BR /> <BR /> {{item.id}}
+			<BR /> <BR /> {{need}}
 			<p ng-bind="need"></p>
 
 		</div>
-
-	<script>
-		function ListUserController($scope) {
-			$scope.need = 0;
-//  $scope.item = [{
-// "id": 2,
-// "title": "Pebbles"}];
-			 			$scope.doRequest = function() {
-						$scope.need=3;
-						};
-		}
-	</script>
+		{{it}}
+	</div>
+	
 
 </div>
 
