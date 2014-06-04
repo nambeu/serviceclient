@@ -6,7 +6,7 @@ import org.springframework.roo.addon.layers.service.RooService;
 import org.springframework.stereotype.Service;
 
 
-@Service
+
 @RooService(domainTypes = { com.dart.serviceclient.domain.UserAccount.class })
 public interface UserService {
 
