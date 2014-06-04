@@ -6,7 +6,6 @@ package com.dart.serviceclient.security;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -41,6 +40,8 @@ public class ApplicationInitFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest arg0,
 			HttpServletResponse arg1, FilterChain arg2)
 			throws ServletException, IOException {
+		Long l= userService.countAllUserAccounts();
+		if (l == 0){
 		if(!inited){
 			UserAccount userAccount = new UserAccount();
 			userAccount.setUserName("admin");
@@ -53,6 +54,7 @@ public class ApplicationInitFilter extends OncePerRequestFilter {
 			userService.saveUserAccount(userAccount);
 			inited = true;
 			LOGGER.debug("Inited : "+userService.findByUserName(userAccount.getUserName()));
+		}
 		}
 		LOGGER.debug("Inited !");
 		arg2.doFilter(arg0, arg1);

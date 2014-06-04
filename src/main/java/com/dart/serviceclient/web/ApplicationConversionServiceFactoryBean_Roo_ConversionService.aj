@@ -3,20 +3,74 @@
 
 package com.dart.serviceclient.web;
 
-import com.dart.serviceclient.domain.UserAccount;
-import com.dart.serviceclient.service.UserService;
-import com.dart.serviceclient.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
+
+import com.dart.serviceclient.domain.EntrepriseAccount;
+import com.dart.serviceclient.domain.SecteurActivite;
+import com.dart.serviceclient.domain.UserAccount;
+import com.dart.serviceclient.service.SecteurActiviteService;
+import com.dart.serviceclient.service.UserService;
 
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
     
     @Autowired
+    SecteurActiviteService ApplicationConversionServiceFactoryBean.secteurActiviteService;
+    
+    @Autowired
     UserService ApplicationConversionServiceFactoryBean.userService;
+    
+    public Converter<EntrepriseAccount, String> ApplicationConversionServiceFactoryBean.getEntrepriseAccountToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dart.serviceclient.domain.EntrepriseAccount, java.lang.String>() {
+            public String convert(EntrepriseAccount entrepriseAccount) {
+                return new StringBuilder().append(entrepriseAccount.getRaisonSocial()).append(' ').append(entrepriseAccount.getRegistreDeCormmerce()).append(' ').append(entrepriseAccount.getLogo()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, EntrepriseAccount> ApplicationConversionServiceFactoryBean.getIdToEntrepriseAccountConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dart.serviceclient.domain.EntrepriseAccount>() {
+            public com.dart.serviceclient.domain.EntrepriseAccount convert(java.lang.Long id) {
+                return entrepriseService.findEntrepriseAccount(id);
+            }
+        };
+    }
+    
+    public Converter<String, EntrepriseAccount> ApplicationConversionServiceFactoryBean.getStringToEntrepriseAccountConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dart.serviceclient.domain.EntrepriseAccount>() {
+            public com.dart.serviceclient.domain.EntrepriseAccount convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), EntrepriseAccount.class);
+            }
+        };
+    }
+    
+    public Converter<SecteurActivite, String> ApplicationConversionServiceFactoryBean.getSecteurActiviteToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dart.serviceclient.domain.SecteurActivite, java.lang.String>() {
+            public String convert(SecteurActivite secteurActivite) {
+                return new StringBuilder().append(secteurActivite.getLibelle()).append(' ').append(secteurActivite.getDescription()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, SecteurActivite> ApplicationConversionServiceFactoryBean.getIdToSecteurActiviteConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dart.serviceclient.domain.SecteurActivite>() {
+            public com.dart.serviceclient.domain.SecteurActivite convert(java.lang.Long id) {
+                return secteurActiviteService.findSecteurActivite(id);
+            }
+        };
+    }
+    
+    public Converter<String, SecteurActivite> ApplicationConversionServiceFactoryBean.getStringToSecteurActiviteConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dart.serviceclient.domain.SecteurActivite>() {
+            public com.dart.serviceclient.domain.SecteurActivite convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SecteurActivite.class);
+            }
+        };
+    }
     
     public Converter<UserAccount, String> ApplicationConversionServiceFactoryBean.getUserAccountToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dart.serviceclient.domain.UserAccount, java.lang.String>() {
@@ -43,6 +97,12 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     }
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getEntrepriseAccountToStringConverter());
+        registry.addConverter(getIdToEntrepriseAccountConverter());
+        registry.addConverter(getStringToEntrepriseAccountConverter());
+        registry.addConverter(getSecteurActiviteToStringConverter());
+        registry.addConverter(getIdToSecteurActiviteConverter());
+        registry.addConverter(getStringToSecteurActiviteConverter());
         registry.addConverter(getUserAccountToStringConverter());
         registry.addConverter(getIdToUserAccountConverter());
         registry.addConverter(getStringToUserAccountConverter());

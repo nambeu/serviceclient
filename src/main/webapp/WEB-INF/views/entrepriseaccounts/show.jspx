@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dart_serviceclient_domain_EntrepriseAccount" object="${entrepriseaccount}" path="/entrepriseaccounts" z="zlSQ4nyX3HMTFt1ztcYbFWnzq08=">
+        <field:display field="raisonSocial" id="s_com_dart_serviceclient_domain_EntrepriseAccount_raisonSocial" object="${entrepriseaccount}" z="U+bmVN4UZsjGVS/YuVnXp4DEDyw="/>
+        <field:display field="registreDeCormmerce" id="s_com_dart_serviceclient_domain_EntrepriseAccount_registreDeCormmerce" object="${entrepriseaccount}" z="mYjLRAFzY89j+Pm7QmtNGPkFtbs="/>
+        <field:display field="logo" id="s_com_dart_serviceclient_domain_EntrepriseAccount_logo" object="${entrepriseaccount}" z="4w8MjFoa2s38BUfIqFoh5hJsCig="/>
+        <field:display field="secteurActivite" id="s_com_dart_serviceclient_domain_EntrepriseAccount_secteurActivite" object="${entrepriseaccount}" z="3vGvzNnmYXw0RBvHOgfb7fGaKw0="/>
+        <field:display field="userCreator" id="s_com_dart_serviceclient_domain_EntrepriseAccount_UserCreator" object="${entrepriseaccount}" z="wMe2QwGdchN0Rxal+X1zTxL9Vxg="/>
+    </page:show>
+</div>

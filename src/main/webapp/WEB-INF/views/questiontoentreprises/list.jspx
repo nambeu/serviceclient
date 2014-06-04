@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dart_serviceclient_domain_QuestionToEntreprise" items="${questiontoentreprises}" z="jftM8MgrNQnXbYRfL65v8xPiFdY=">
+        <table:table data="${questiontoentreprises}" id="l_com_dart_serviceclient_domain_QuestionToEntreprise" path="/questiontoentreprises" z="DdspcRuxSEiJSThYxhJvKGQa4H4=">
+            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_title" property="title" z="NxoHLYlLfP6X5ILGX/93AY5b2k0="/>
+            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_content" property="content" z="7OwdRks6HI/QkIY85JKsSOmr/GM="/>
+            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" property="postUser" z="mgv5O55mr0bwcqtL+25329GiQEc="/>
+            <table:column date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" id="c_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" property="dateOfPost" z="j6mxDc/jpbnKyGb7utSXiLljdHA="/>
+            <table:column id="c_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" property="receiveEntreprise" z="IYI+h6QdnYVgdEhWDhEk7kWafso="/>
+        </table:table>
+    </page:list>
+</div>

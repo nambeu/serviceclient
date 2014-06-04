@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dart_serviceclient_domain_QuestionToEntreprise" object="${questiontoentreprise}" path="/questiontoentreprises" z="qEeT1YRHLpz95ebVC9uCYQOSBno=">
+        <field:display field="title" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_title" object="${questiontoentreprise}" z="X3uSnWagU06euZ0jGa9kgB+sM44="/>
+        <field:display field="content" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_content" object="${questiontoentreprise}" z="ULHyATIqvy8sCJelbPaWGcR8Yxk="/>
+        <field:display field="postUser" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_postUser" object="${questiontoentreprise}" z="nSLhlyBtGtrTT4d9lRDaqpGq5FQ="/>
+        <field:display date="true" dateTimePattern="${questionToEntreprise_dateofpost_date_format}" field="dateOfPost" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_dateOfPost" object="${questiontoentreprise}" z="sfZT9j+PpbX3ajl1eyC2D/Tihnw="/>
+        <field:display field="receiveEntreprise" id="s_com_dart_serviceclient_domain_QuestionToEntreprise_receiveEntreprise" object="${questiontoentreprise}" z="7F2Nlorot2OD2p5kXbFOXGnObeE="/>
+    </page:show>
+</div>

@@ -1,4 +1,5 @@
 package com.dart.serviceclient.web;
+
 import java.util.List;
 import java.util.Set;
 
@@ -6,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 import org.springframework.roo.addon.web.mvc.controller.scaffold.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,16 +20,14 @@ import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
 import com.dart.serviceclient.mail.MailService;
 import com.dart.serviceclient.security.Security;
-import com.dart.serviceclient.service.UserService;
 import com.dart.serviceclient.tools.ValideEmailUtil;
-
-import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 
 @RequestMapping("/useraccounts")
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
 @RooWebJson(jsonObject = UserAccount.class)
 public class UserAccountController {
+
 
     @Autowired
     Security security;
@@ -205,9 +205,11 @@ public class UserAccountController {
 		String to ="pimsonlove@gmail.com";
 		String sms = "Test d'envoi de mail automatique \n send by DART\n\nHave a nice night\nNe pas repondre s'il vous plait";
 		
-		mailService.sendMessage(to, sms);
-		
 		return "indexHome";
-	}   
+
+    }
     
+   
+
+
 }

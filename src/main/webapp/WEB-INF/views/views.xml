@@ -64,4 +64,16 @@
 <definition extends="homeLayout" name="login">
         <put-attribute name="body" value="/WEB-INF/views/login.jspx"/>
     </definition>
+    
+    <definition extends="homeLayout" name="questionsUsers">
+        <put-attribute name="body" value="/WEB-INF/views/questionsToEntreprise.jspx"/>
+    </definition>
+    
+    <definition extends="homeLayout" name="listQuestionsUser">
+        <put-attribute name="body" value="/WEB-INF/views/listquestionsToEntreprise.jspx"/>
+    </definition>
+    
+      <definition extends="homeLayout" name="listEntreprise">
+        <put-attribute name="body" value="/WEB-INF/views/listEntreprise.jspx"/>
+    </definition>
 </tiles-definitions>
