@@ -8,18 +8,34 @@
 	<jsp:output omit-xml-declaration="yes" />
 
 
-	<div >
-		<div >
 
-			<button ng-click="doRequest()">:: list user with angular
-				request ::</button>
-			<BR /> <BR /> {{need}}
-			<p ng-bind="need"></p>
+	<!-- 		<BUTTON ng-click="doIt()">send request to the server</BUTTON> -->
 
-		</div>
-		{{it}}
-	</div>
-	
+	<BUTTON ng-click="doIt()">click here to send the request to
+		the server :</BUTTON>
+	<BR /> <BR />
+	<h1>:: !ALL THE USERS OF MY OF MY BD! ::</h1>
+	<table>
+		<tr ng-repeat="item in items">
+			<td>{{item.id}}</td>
+			<td>{{item.userName}}</td>
+			<td>{{item.email}}</td>
+		</tr>
+	</table>
+
+	<SCRIPT type="text/javascript">
+		var myAppModule = angular.module('myApp', []);
+		myAppModule.controller('TextController', function($scope, $http) {
+
+			$scope.doIt = function() {
+				$http.get('/useraccounts/usersAngular').success(function(data) {
+					$scope.items = data;
+				});
+				// 				alert("ff");
+			};
+		});
+	</SCRIPT>
+
 
 </div>
 

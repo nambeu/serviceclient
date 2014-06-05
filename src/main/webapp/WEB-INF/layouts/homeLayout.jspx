@@ -57,7 +57,7 @@
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 
-<body class="" ng-controller='ListUserController'>
+<body class="" ng-controller='TextController'>
 
 	<div class="container">
 		<div class="header">

@@ -13,3 +13,4 @@ service type --interface ~.service.QuestionService --entity ~.domain.QuestionToE
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 16:20:51
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 19:33:51
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-01 21:21:26
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 09:44:10

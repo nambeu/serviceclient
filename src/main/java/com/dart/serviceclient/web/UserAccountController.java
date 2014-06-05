@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -75,7 +76,7 @@ public class UserAccountController {
 
 		if (bindingResult.hasErrors()) {
 			uiModel.addAttribute("userAccount", userAccount);
-//			addDateTimeFormatPatterns(uiModel);
+			// addDateTimeFormatPatterns(uiModel);
 			System.out.println("verif errors");
 			return "signUp";
 		}
@@ -97,15 +98,34 @@ public class UserAccountController {
 		return "users/list";
 	}
 
+	/* pour tester une requête avec ANGULARJS */
+	@RequestMapping(value = "/usersAngular", method = RequestMethod.GET)
+	public @ResponseBody List<UserAccount> listUsers2(
+			HttpServletRequest request, Model uiModel) {
+
+		System.out.println("::::: Entrer dans la requête avec angularJs :::::");
+		System.out.println();
+
+		List<UserAccount> listUsersAccounts = userService.findAllUserAccounts();
+		// uiModel.addAttribute("listUsers", listUsersAccounts);
+		// userService.findAllUserAccounts();
+
+		System.out.println("::::: Sortie de la requête avec angularJs :::::");
+		System.out.println();
+
+		return listUsersAccounts;
+	}
+
+	/* pour tester une requête avec ANGULARJS */
+
 	@RequestMapping(value = "/testAngular4")
-	public String listUsersAngular1(HttpServletRequest request,
-			Model uiModel) {
+	public String listUsersAngular1(HttpServletRequest request, Model uiModel) {
 		return "angularRequest";
 	}
-	
+
 	@RequestMapping(value = "/testAngular2")
-	public @ResponseBody List<UserAccount> listUsersAngular2(HttpServletRequest request,
-			Model uiModel) {
+	public @ResponseBody List<UserAccount> listUsersAngular2(
+			HttpServletRequest request, Model uiModel) {
 		List<UserAccount> listUsersAccounts = userService.findAllUserAccounts();
 		// uiModel.addAttribute("listUsers", listUsersAccounts);
 		// userService.findAllUserAccounts();
