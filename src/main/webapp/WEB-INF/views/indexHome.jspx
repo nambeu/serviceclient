@@ -17,6 +17,10 @@
 			<a class="btn btn-lg btn-success" href="${sign_url}" role="button">Sign up
 				today</a>
 		</p>
+		<p>
+		<spring:url value="/useraccounts/sendMail" var="mail_url"></spring:url>
+			<a class="btn btn-lg btn-info btn-sm" href="${mail_url}" role="button">Send mail</a>
+		</p>
 	</div>
 
 	<div class="row marketing">

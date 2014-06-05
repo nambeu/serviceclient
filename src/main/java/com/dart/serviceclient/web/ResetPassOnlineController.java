@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 //import antlr.StringUtils;
 
+
 import com.dart.serviceclient.domain.ResetPasswordOnline;
 import com.dart.serviceclient.domain.UserAccount;
+import com.dart.serviceclient.mail.MailService;
 import com.dart.serviceclient.security.Security;
 import com.dart.serviceclient.service.UserService;
 
@@ -27,7 +29,7 @@ import com.dart.serviceclient.service.UserService;
 
 @Controller
 @RequestMapping("/resetPassOnline")
-public class ResetPasswordOnlineController {
+public class ResetPassOnlineController {
 
 	@Autowired
 	UserService userService;

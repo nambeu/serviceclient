@@ -101,12 +101,11 @@ class --class ~.email.MailServiceImpl
 interface --class ~mail.MailService
 class --class ~.mail.MailServiceImpl
 
-<<<<<<< HEAD
-=======
+
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 17:03:39
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 21:12:45
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-28 10:16:24
->>>>>>> 7034d55979adb326a43ddc84174178f96c38ffa8
+
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-01 12:45:49
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-02 19:52:37
 class --class ~.domain.SearchEntreprise --rooAnnotations true
