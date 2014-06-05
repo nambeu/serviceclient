@@ -22,13 +22,13 @@
 			<td>{{item.email}}</td>
 		</tr>
 	</table>
-
+	<spring:url value="/useraccounts/usersAngular" var="testAngularUrl"></spring:url>
 	<SCRIPT type="text/javascript">
 		var myAppModule = angular.module('myApp', []);
 		myAppModule.controller('TextController', function($scope, $http) {
 
 			$scope.doIt = function() {
-				$http.get('/useraccounts/usersAngular').success(function(data) {
+				$http.get('${testAngularUrl}').success(function(data) {
 					$scope.items = data;
 				});
 				// 				alert("ff");

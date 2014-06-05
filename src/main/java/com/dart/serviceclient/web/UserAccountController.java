@@ -20,6 +20,8 @@ import com.dart.serviceclient.domain.UserAccount;
 import com.dart.serviceclient.domain.UserRole;
 import com.dart.serviceclient.service.UserService;
 
+import flexjson.JSONSerializer;
+
 @RequestMapping("/useraccounts")
 @Controller
 @RooWebScaffold(path = "useraccounts", formBackingObject = UserAccount.class)
@@ -100,7 +102,7 @@ public class UserAccountController {
 
 	/* pour tester une requête avec ANGULARJS */
 	@RequestMapping(value = "/usersAngular", method = RequestMethod.GET)
-	public @ResponseBody List<UserAccount> listUsers2(
+	public @ResponseBody String listUsers2(
 			HttpServletRequest request, Model uiModel) {
 
 		System.out.println("::::: Entrer dans la requête avec angularJs :::::");
@@ -112,8 +114,7 @@ public class UserAccountController {
 
 		System.out.println("::::: Sortie de la requête avec angularJs :::::");
 		System.out.println();
-
-		return listUsersAccounts;
+		return new JSONSerializer().serialize(listUsersAccounts);
 	}
 
 	/* pour tester une requête avec ANGULARJS */

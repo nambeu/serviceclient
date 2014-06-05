@@ -14,4 +14,17 @@ service type --interface ~.service.QuestionService --entity ~.domain.QuestionToE
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-05-27 19:33:51
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-01 21:21:26
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 09:44:10
+<<<<<<< HEAD
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 17:42:36
+=======
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 18:14:04
+// [failed] json add --class ~.domain.UserAccount
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-06-05 18:15:01
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 18:18:58
+focus --class ~.domain.UserAccount
+// [failed] json add 
+q
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log closed at 2014-06-05 18:24:03
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 18:24:08
+>>>>>>> d8a95c572225f245cc45ad476a6c85c28dbf98f6
