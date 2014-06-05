@@ -18,12 +18,16 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.entity.RooJpaEntity;
+import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.util.Assert;
+
+import flexjson.JSON;
 
 @RooJavaBean
 @RooToString
 @RooJpaEntity
+@RooJson
 public class UserAccount {
 
 	@Column(unique = true)
