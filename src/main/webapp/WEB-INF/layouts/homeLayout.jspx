@@ -3,7 +3,7 @@
 	xmlns:tiles="http://tiles.apache.org/tags-tiles"
 	xmlns:spring="http://www.springframework.org/tags"
 	xmlns:sec="http://www.springframework.org/security/tags"
-	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util">
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" ng-app="myApp">
 
 
 <jsp:output doctype-root-element="HTML"
@@ -43,6 +43,12 @@
 </script>
 
 <script src="${res}/js/bootstrap-button.js">
+<!--co-->
+	
+</script>
+
+
+<script src="${res}/js/angular.min.js">
 <!--co-->
 	
 </script>
@@ -110,7 +116,7 @@
 								<!-- pour afficher les liens en fonction des droits sur le site		 -->
 								<sec:authorize access="hasAnyRole('ADMIN','USER') ">
 									<li><a href="#"><i class="icon-user"> <!--c--></i>Hi,
-										<sec:authentication property="principal.username" />.</a></li>
+											<sec:authentication property="principal.username" />.</a></li>
 								</sec:authorize>
 
 								<sec:authorize access="hasRole('ADMIN') ">
@@ -161,14 +167,14 @@
 			</ul>
 			<h3 class="text-muted">Project name</h3>
 			<div style="float: right;">
-			<sec:authorize access="hasAnyRole('ADMIN','USER')">
+				<sec:authorize access="hasAnyRole('ADMIN','USER')">
 			Hi, <sec:authentication property="principal.username" />. 
 		</sec:authorize>
-		</div>
+			</div>
 		</div>
 
 		<!-- content -->
-		<div>
+		<div ng-controller="entrepriseController">
 			<tiles:insertAttribute name="body">
 			</tiles:insertAttribute>
 		</div>
