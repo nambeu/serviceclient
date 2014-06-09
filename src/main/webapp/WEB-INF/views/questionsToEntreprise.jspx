@@ -9,7 +9,6 @@
 
 	<spring:url value="/questiontoentreprises/postQuestion"
 		var="postQuestionUser"></spring:url>
-${identrep}
 	<form:form commandName="questionToEntreprise"
 		action="${postQuestionUser}?entreprise=${identrep}" method="post">
 

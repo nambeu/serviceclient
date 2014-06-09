@@ -76,4 +76,8 @@
       <definition extends="homeLayout" name="listEntreprise">
         <put-attribute name="body" value="/WEB-INF/views/listEntreprise.jspx"/>
     </definition>
+    
+     <definition extends="homeLayout" name="listOneEntreprise">
+        <put-attribute name="body" value="/WEB-INF/views/listOneEntreprise.jspx"/>
+    </definition>
 </tiles-definitions>

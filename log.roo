@@ -114,3 +114,5 @@ field reference --type ~.domain.SecteurActivite secteurActivite --notNull
 controller scaffold --class ~.domain.SearchEntrepriseController --entity ~.domain.SearchEntreprise
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-03 09:11:58
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-05 21:35:08
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 06:16:33
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 09:44:10

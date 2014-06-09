@@ -70,11 +70,14 @@ ${entre.raisonSocial}, ${entre.registreDeCormmerce}, ${entre.secteurActivite.lib
 
 									<spring:url value="/questiontoentreprises/createQuestion"
 										var="myQuestion"></spring:url>
+									<spring:url value="/entrepriseaccounts/listOneEntreprise"
+										var="myEntreprise"></spring:url>
 									<sec:authorize access="hasRole('USER')">
 										<A href="${myQuestion}?entreprise=${list.id}"> post a
-											question</A>
+											question</A> Or 
 
 									</sec:authorize>
+										<A href="${myEntreprise}?idEntreprise=${list.id}">Read more about ...</A>
 
 
 

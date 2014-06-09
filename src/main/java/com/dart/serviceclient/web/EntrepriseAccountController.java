@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dart.serviceclient.domain.EntrepriseAccount;
 import com.dart.serviceclient.domain.SearchEntreprise;
@@ -99,6 +100,23 @@ public class EntrepriseAccountController {
 
 		uiModel.addAttribute("listEntrep", listEntrep);
 		return "listEntreprise";
+	}
+
+	@RequestMapping(value = "/listOneEntreprise")
+	public String listOneEntreprise(Model uiModel,
+			@RequestParam(value = "idEntreprise") int id) {
+
+		EntrepriseAccount oneEntreprise = entrepriseService
+				.findEntrepriseAccount((long) id);
+
+		List<SecteurActivite> listSectors = secteurActiviteService
+				.findAllSecteurActivites();
+
+		uiModel.addAttribute("secteurActivites", listSectors);
+		uiModel.addAttribute("searchEntreprise", new SearchEntreprise());
+
+		uiModel.addAttribute("oneEntreprise", oneEntreprise);
+		return "listOneEntreprise";
 	}
 
 	@RequestMapping(value = "/searchEntreprise")
