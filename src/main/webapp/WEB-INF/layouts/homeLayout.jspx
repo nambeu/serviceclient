@@ -59,7 +59,7 @@
 <title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 </head>
 
-<body class="">
+<body class="" ng-controller="entrepriseController">
 
 	<div class="container">
 		<div class="header">
@@ -174,7 +174,7 @@
 		</div>
 
 		<!-- content -->
-		<div ng-controller="entrepriseController">
+		<div>
 			<tiles:insertAttribute name="body">
 			</tiles:insertAttribute>
 		</div>

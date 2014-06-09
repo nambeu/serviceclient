@@ -113,14 +113,7 @@ public class EntrepriseAccountController {
 		EntrepriseAccount oneEntreprise = entrepriseService
 				.findEntrepriseAccount((long) id);
 
-//		List<SecteurActivite> listSectors = secteurActiviteService
-//				.findAllSecteurActivites();
-
-//		uiModel.addAttribute("secteurActivites", listSectors);
-//		uiModel.addAttribute("searchEntreprise", new SearchEntreprise());
-
-//		uiModel.addAttribute("oneEntreprise", oneEntreprise);
-		return new JSONSerializer().serialize(oneEntreprise);
+		return "oneEntreprise";
 	}
 //////////////////////////////////////////////////////////:
 
