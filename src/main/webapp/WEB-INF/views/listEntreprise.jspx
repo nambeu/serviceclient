@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
-	xmlns:sf="http://www.springframework.org/tags/form"
+	xmlns:form="http://www.springframework.org/tags/form"
 	xmlns:sec="http://www.springframework.org/security/tags"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:spring="http://www.springframework.org/tags" version="2.0">
@@ -12,7 +12,7 @@
 
 	<spring:url value="/entrepriseaccounts/searchEntreprise"
 		var="searchEntreprise"></spring:url>
-	<sf:form method="post" action="${searchEntreprise}"
+	<form:form method="post" action="${searchEntreprise}"
 		commandName="searchEntreprise">
 
 		<fieldset>
@@ -20,41 +20,41 @@
 			<div
 				style="color: green; background-color: transparent; padding: 3px; font-weight: bold">${msg}</div>
 			<div class="form-group">
-				<sf:label path="searchValue">Name or Part of Name of Entreprise:</sf:label>
-				<sf:input cssClass="form-control" path="searchValue"
+				<form:label path="searchValue">Name or Part of Name of Entreprise:</form:label>
+				<form:input cssClass="form-control" path="searchValue"
 					id="searchValue" placeholder="enter the name's company" />
-				<sf:errors path="searchValue"
+				<form:errors path="searchValue"
 					cssStyle="color:red;background-color: #f2dede; padding:3px"
-					cssClass="has-error" id="_searchValue_error_id"></sf:errors>
+					cssClass="has-error" id="_searchValue_error_id"></form:errors>
 			</div>
 
 			<div class="form-group">
-				<sf:label path="secteurActivite">sector activity:</sf:label>
-				<sf:select cssClass="form-control" path="secteurActivite"
+				<form:label path="secteurActivite">sector activity:</form:label>
+				<form:select cssClass="form-control" path="secteurActivite"
 					id="secteurActivite" placeholder="select your sector activity"
 					items="${secteurActivites}" itemValue="id" itemLabel="libelle" />
-				<sf:errors path="secteurActivite"
+				<form:errors path="secteurActivite"
 					cssStyle="color:red;background-color: #f2dede; padding:3px"
-					cssClass="has-error" id="_secteurActivite_error_id"></sf:errors>
+					cssClass="has-error" id="_secteurActivite_error_id"></form:errors>
 			</div>
 
 			<input type="submit" class="btn btn-primary" value="Search" />
 		</fieldset>
-	</sf:form>
-	<BR /> 
+	</form:form>
+	<BR />
 
 	<c:forEach items="${listSearch}" var="entre">
 ${entre.raisonSocial}, ${entre.registreDeCormmerce}, ${entre.secteurActivite.libelle}, ${entre.secteurActivite.description}
 <BR />
 	</c:forEach>
 
-	<BR /> 
+	<BR />
 	<c:forEach items="${listEntrep}" var="list">
 
 		<div class="accordion" id="accordion2">
 			<div class="accordion-group">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-15">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="accordion-toggle" data-toggle="collapse"
@@ -77,10 +77,8 @@ ${entre.raisonSocial}, ${entre.registreDeCormmerce}, ${entre.secteurActivite.lib
 											question</A> Or 
 
 									</sec:authorize>
-										<A href="${myEntreprise}?idEntreprise=${list.id}">Read more about ...</A>
 
-
-
+									<button ng-click="doIt(${list.id});">Read more about</button>
 								</div>
 							</div>
 						</div>
@@ -91,4 +89,54 @@ ${entre.raisonSocial}, ${entre.registreDeCormmerce}, ${entre.secteurActivite.lib
 		<BR />
 
 	</c:forEach>
+
+	<div style="line-height: 40px" id="dassi">
+
+		<H3 class="btn-primary">
+			<center>INFORMATIONS DE L'ENTREPRISE</center>
+		</H3>
+		<div entreprise=""></div>
+
+		
+	</div>
+	<H3 class="btn-primary">
+				<center>MAPPING OF : {{items.raisonSocial}}</center>
+			</H3>
+
+	<spring:url value="/entrepriseaccounts/listOneEntreprise"
+		var="oneEntreprise"></spring:url>
+
+	<SCRIPT type="text/javascript">
+		$("#dassi").hide();
+		var myModule = angular.module('myApp', []);
+		myModule.controller('entrepriseController', function($scope, $http) {
+			$scope.doIt = function(kk) {
+				$("#dassi").show();
+				$scope.name = "name";
+				$http.get('${oneEntreprise}?idEntreprise=' + kk).success(
+						function(data) {
+							$scope.items = data;
+						});
+			};
+		});
+		myModule
+				.directive(
+						'entreprise',
+						function() {
+							var directive = {};
+
+							directive.restrict = 'A'; /* restrict this directive to attributs div */
+							directive.template = "<table>" 
+									+ " <tr> <td>Name  : </td>  <td> {{items.raisonSocial}} </td></tr>"
+									+ "<tr> <td> Country  : </td>  <td> {{items.pays}} </td></tr>"
+									+ "<tr> <td> Town  : </td> <td> {{items.ville}} </td> </tr>"
+									+ "<tr> <td> Commerce Registry  : </td> <td>   {{items.registreDeCormmerce}}</td> </tr>"
+									+ "<tr> <td> Activity Sector  :  </td> <td> {{items.secteurActivite.libelle}} </td> </tr>"
+									+ "<tr> <td> Description Of Sector  :  </td> <td> {{items.secteurActivite.description}} </td> </tr>"
+									+ "<tr> <td> By  : </td> <td> {{items.UserCreator.userName}} </td> </tr>"
+									+ "</table>";
+
+							return directive;
+						});
+	</SCRIPT>
 </div>

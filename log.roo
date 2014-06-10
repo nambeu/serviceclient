@@ -118,3 +118,5 @@ controller scaffold --class ~.domain.SearchEntrepriseController --entity ~.domai
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 09:44:10
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 12:43:48
 // Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 17:26:09
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-09 22:32:15
+// Spring Roo 1.2.4.RELEASE [rev 75337cf] log opened at 2014-06-10 04:34:41

@@ -104,20 +104,21 @@ public class EntrepriseAccountController {
 		uiModel.addAttribute("listEntrep", listEntrep);
 		return "listEntreprise";
 	}
-	
-//////////////////////////////////////////////////////////:
+
+	// ////////////////////////////////////////////////////////:
 	@RequestMapping(value = "/listOneEntreprise", method = RequestMethod.GET)
 	public @ResponseBody String listOneEntreprise(Model uiModel,
-			@RequestParam(value = "idEntreprise") int id) {
-
+			@RequestParam(value = "idEntreprise") long id) {
+		System.out.println("entrer dans la requête angular ajax");
 		EntrepriseAccount oneEntreprise = entrepriseService
 				.findEntrepriseAccount((long) id);
+		System.out.println("sortie de la requête angular ajax");
 
-		return "oneEntreprise";
+		return new JSONSerializer().serialize(oneEntreprise);
 	}
-//////////////////////////////////////////////////////////:
 
-	
+	// ////////////////////////////////////////////////////////:
+
 	@RequestMapping(value = "/searchEntreprise")
 	public String searchEntreprise(@Valid SearchEntreprise searchEntreprise,
 			Model uiModel, HttpServletRequest HttpServletRequest) {

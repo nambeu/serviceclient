@@ -14,7 +14,7 @@
 <H3 class="btn-primary"> <center>INFORMATIONS DE L'ENTREPRISE</center></H3>
 
 
-Name  :   <BR/>
+Name  :   {{items.raisonsociale}}<BR/>
 
 Pays  :   <BR/>
 
@@ -36,9 +36,11 @@ By  :  this user<BR/>	<BR/>
 {{a}}
 </div>
 
+<spring:url value="/entrepriseaccounts/listOneEntreprise",var="testAngularUrl"></spring:url>
+
 		<SCRIPT type="text/javascript">
 			var myModule = angular.module('myApp', []);
-			myAppModule.controller('entrepriseController', function($scope, $http) {
+			myModule.controller('entrepriseController', function($scope, $http) {
 				$scope.a = "dassi";
 				$scope.doIt = function() {
 					$http.get('${testAngularUrl}').success(function(data) {
